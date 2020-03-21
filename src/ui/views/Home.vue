@@ -7,8 +7,33 @@
       <li>Touch-Device: {{ Application.touch }}</li>
     </ul>
 
+    <TextField v-model="textfield" :label="$t('label')" required />
+    <TextArea v-model="textarea" :label="$t('label')" />
+    <SelectField v-model="select" :label="$t('label')">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+    </SelectField>
+    <Button
+      class="mr-2"
+      theme="primary"
+      @click="$ui.dialog.alert({ message: 'Test 123' })"
+    >
+      Dialog
+    </Button>
+    <Button theme="secondary" class="mr-2" @click="modal = true">Modal</Button>
+    <Button>Noch ein Button</Button>
+
     <Portal to="modal">
-      <div>Modal Test</div>
+      <Modal v-model="modal" modal-class="w-64">
+        <template v-slot:header>
+          Header
+        </template>
+        Modal Test
+        <template v-slot:footer>
+          <Button @click="modal = false">Schließen</Button>
+        </template>
+      </Modal>
     </Portal>
     <Portal to="dialog">
       <div>Dialog Test</div>
@@ -19,6 +44,15 @@
 <script>
 export default {
   injectModels: ['Application', 'Authentication'],
+
+  data() {
+    return {
+      textfield: null,
+      textarea: null,
+      select: null,
+      modal: false,
+    };
+  },
 
   computed: {
     userName() {

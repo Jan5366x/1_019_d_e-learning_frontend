@@ -4,4 +4,5 @@ export default {
   dateFormat: 'DD.MM.YYYY',
   dateTimeFormat: 'DD.MM.YYYY HH:mm',
   hello: 'Hallo {n}!',
+  label: 'Label',
 };
