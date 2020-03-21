@@ -18,7 +18,7 @@ module.exports = {
         xxl: '1440px',
         xxxl: '1920px',
       },
-      minWidth: {
+      maxWidth: {
         80: '20rem',
       },
       container: {

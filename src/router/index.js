@@ -56,8 +56,10 @@ router.beforeEach((to, from, next) => {
     next();
   } else if (!to.meta.authRequired && token) {
     router.push('/home');
+  } else if (to.meta.authRequired && !token) {
+    router.push('/login');
   } else {
-    router.push('/');
+    next();
   }
 });
 
