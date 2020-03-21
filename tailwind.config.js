@@ -4,6 +4,7 @@ const safeAreaSpacing = require('./src/plugins/tailwindcss/safeAreaSpacing');
 // touch variant use like this touch:mt-4
 const touchVariant = require('./src/plugins/tailwindcss/touchVariant');
 const fontVariantNumeric = require('./src/plugins/tailwindcss/fontVariantNumeric');
+const container = require('./src/plugins/tailwindcss/container');
 
 // tailwind.config.js
 module.exports = {
@@ -17,8 +18,11 @@ module.exports = {
         xxl: '1440px',
         xxxl: '1920px',
       },
-      minWidth: {
+      maxWidth: {
         80: '20rem',
+      },
+      container: {
+        default: '1440px',
       },
     },
     fontFamily: {
@@ -36,5 +40,6 @@ module.exports = {
     safeAreaSpacing,
     touchVariant,
     fontVariantNumeric,
+    container,
   ],
 };

@@ -41,7 +41,7 @@ export default {
       if (token) {
         this.token = token;
         this.getUserData();
-      } else {
+      } else if (this.$route.meta.authRequired) {
         this.$router.push('/login');
       }
     },

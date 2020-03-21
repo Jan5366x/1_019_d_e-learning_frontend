@@ -13,10 +13,6 @@ const authRequired = () => {
 
 const routes = [
   {
-    path: '/',
-    redirect: '/login',
-  },
-  {
     path: '/home',
     name: 'Home',
     component: () => import(/* webpackChunkName: "Home" */ '../ui/views/Home.vue'),
@@ -110,6 +106,14 @@ const routes = [
     path: '/404-not-found',
     name: '404 Not Found',
     component: () => import(/* webpackChunkName: "NotFound" */ '../ui/views/NotFound.vue'),
+  },
+  {
+    path: '/',
+    redirect: '/login',
+  },
+  {
+    path: '*',
+    redirect: '/404-not-found',
   },
 ];
 
