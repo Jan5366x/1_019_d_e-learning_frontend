@@ -3,7 +3,7 @@
     v-if="forId"
     x-component="LabelText"
     :for="forId"
-    class="uppercase text-xs font-medium tracking-wide text-gray-700 block ml-px mb-px select-none"
+    class="text-xs font-medium tracking-wide text-gray-700 block ml-px mb-px select-none"
     :class="{
       'cursor-not-allowed': disabled,
     }"
@@ -13,7 +13,7 @@
   <div
     v-else
     x-component="LabelText"
-    class="uppercase text-xs font-medium tracking-wide text-gray-700 block ml-px mb-px select-none"
+    class="text-xs font-medium tracking-wide text-gray-700 block ml-px mb-px select-none"
   >
     <slot />
   </div>
