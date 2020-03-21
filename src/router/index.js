@@ -1,23 +1,30 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
+import { ACCESS_TOKEN } from '../config/localStorageVariables';
+
 Vue.use(VueRouter);
+
+const authRequired = () => {
+  return {
+    authRequired: true,
+  };
+};
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: () => import(/* webpackChunkName: "Home" */ '../ui/views/Home.vue'),
+    redirect: '/login',
   },
   {
     path: '/login',
     name: 'Login',
-    component: () => import(/* webpackChunkName: "Home" */ '../ui/views/Login.vue'),
+    component: () => import(/* webpackChunkName: "Basics" */ '../ui/views/Login.vue'),
   },
   {
     path: '/register',
     name: 'Register',
-    component: () => import(/* webpackChunkName: "Home" */ '../ui/views/Register.vue'),
+    component: () => import(/* webpackChunkName: "Basics" */ '../ui/views/Register.vue'),
   },
   {
     path: '/dashboard',
@@ -27,7 +34,15 @@ const routes = [
   {
     path: '/404-not-found',
     name: '404 Not Found',
-    component: () => import(/* webpackChunkName: "Home" */ '../ui/views/NotFound.vue'),
+    component: () => import(/* webpackChunkName: "Basics" */ '../ui/views/NotFound.vue'),
+  },
+  {
+    path: '/home',
+    name: 'Home',
+    component: () => import(/* webpackChunkName: "Home" */ '../ui/views/Home.vue'),
+    meta: {
+      ...authRequired(),
+    },
   },
 ];
 
@@ -36,8 +51,14 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  // do something to guard routes
-  next();
+  const token = localStorage.getItem(ACCESS_TOKEN);
+  if (to.meta.authRequired && token) {
+    next();
+  } else if (!to.meta.authRequired && token) {
+    router.push('/home');
+  } else {
+    router.push('/');
+  }
 });
 
 export default router;

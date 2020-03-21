@@ -9,6 +9,7 @@ export default {
   password: 'Passwort',
   forgotPassword: 'Passwort vergessen?',
   login: 'Login',
+  logout: 'Logout',
   dashboard: {
     title: 'Dashboard',
     teachers_room: 'Lehrerzimmer',
