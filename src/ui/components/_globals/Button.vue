@@ -101,7 +101,7 @@ export default {
   computed: {
     classes() {
       return {
-        'bg-black py-2 text-white hover:bg-teal-600 active:bg-teal-700': this.theme === 'primary' && !this.disabled,
+        'bg-black py-2 text-white hover:bg-gray-600 active:bg-gray-700': this.theme === 'primary' && !this.disabled,
         'bg-gray-300 py-2 text-gray-800 hover:bg-gray-400 hover:text-gray-900 active:bg-gray-500': this.theme === 'secondary' && !this.disabled,
         'bg-transparent border border-gray-400 padding-y hover:bg-gray-200 active:bg-gray-300 active:text-gray-900': this.theme === 'tertiary' && !this.disabled,
         'bg-red-200 py-2 text-red-700 hover:text-red-900 active:bg-red-300': this.theme === 'alert' && !this.disabled,

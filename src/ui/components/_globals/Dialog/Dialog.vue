@@ -51,7 +51,7 @@
           type="button"
           class="flex justify-center w-full py-2 transition-all duration-150 focus:outline-none"
           :class="{
-            'text-black focus:text-teal-700 focus:bg-teal-100': theme === 'primary',
+            'text-black focus:text-gray-700 focus:bg-gray-100': theme === 'primary',
             'text-gray-700 focus:text-gray-700 focus:bg-gray-200': theme === 'alert',
           }"
           @click="cancel"
@@ -65,7 +65,7 @@
           class="flex border-t border-gray-200 md:border-none justify-center w-full py-2
           transition-all duration-150 font-semibold focus:outline-none"
           :class="{
-            'text-black focus:text-teal-700 focus:bg-teal-100': theme === 'primary' && !confirmDisabled,
+            'text-black focus:text-gray-700 focus:bg-gray-100': theme === 'primary' && !confirmDisabled,
             'text-red-500 focus:text-red-700 focus:bg-red-200': theme === 'alert' && !confirmDisabled,
             'text-gray-600 cursor-not-allowed': confirmDisabled,
           }"
