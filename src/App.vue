@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div class="p-4 md:p-6">
+    <div>
       <router-view />
     </div>
     <!-- Target for modals/dialogs => prevent z-index bugs -->

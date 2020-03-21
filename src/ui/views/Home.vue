@@ -56,7 +56,10 @@ export default {
 
   computed: {
     userName() {
-      return `${this.Authentication.user.firstName} ${this.Authentication.user.lastName}`;
+      if (this.Authentication.user) {
+        return `${this.Authentication.user.firstName} ${this.Authentication.user.lastName}`;
+      }
+      return '';
     },
   },
 };
