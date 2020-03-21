@@ -20,6 +20,11 @@ const routes = [
     component: () => import(/* webpackChunkName: "Home" */ '../ui/views/Register.vue'),
   },
   {
+    path: '/dashboard',
+    name: 'Dashboard',
+    component: () => import(/* webpackChunkName: "Home" */ '../ui/views/Dashboard.vue'),
+  },
+  {
     path: '/404-not-found',
     name: '404 Not Found',
     component: () => import(/* webpackChunkName: "Home" */ '../ui/views/NotFound.vue'),
