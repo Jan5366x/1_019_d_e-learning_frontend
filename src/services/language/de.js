@@ -10,8 +10,8 @@ export default {
   forgotPassword: 'Passwort vergessen?',
   login: 'Login',
   logout: 'Logout',
-  dashboard: {
-    title: 'Dashboard',
+  dashboard: 'Dashboard',
+  teacher_dashboard: {
     teachers_room: 'Lehrerzimmer',
     students_room: 'Schülerzimmer',
   },

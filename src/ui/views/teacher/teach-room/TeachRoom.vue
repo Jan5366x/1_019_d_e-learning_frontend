@@ -1,10 +1,10 @@
 <template>
-  <div />
+  <seciion />
 </template>
 
 <script>
 export default {
-  name: 'Dashboard',
+  name: 'TeachRoom',
 };
 </script>
 

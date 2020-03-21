@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'Dashboard',
+  name: 'Tasks',
 };
 </script>
 
