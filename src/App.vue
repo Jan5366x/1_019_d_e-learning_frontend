@@ -18,13 +18,7 @@
 </template>
 
 <script>
-import Application from './models/Application';
-import Authentication from './models/Authentication';
-
 export default {
-  models: {
-    Application,
-    Authentication,
-  },
+  models: {},
 };
 </script>

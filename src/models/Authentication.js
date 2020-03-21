@@ -11,6 +11,7 @@ export default {
     this.user = {
       firstName: 'Max',
       lastName: 'Mustermann',
+      role: 'teacher',
     };
   },
 };

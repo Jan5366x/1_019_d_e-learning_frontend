@@ -15,4 +15,9 @@ const router = new VueRouter({
   routes,
 });
 
+router.beforeEach((to, from, next) => {
+  // do something to guard routes
+  next();
+});
+
 export default router;
