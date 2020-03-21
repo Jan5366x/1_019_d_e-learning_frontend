@@ -20,8 +20,13 @@
           placeholder="*************************"
         >
       </div>
-      <div class="mb-4">
+      <div class="mb-4 text-center">
         <a href="#">Forgot Password?</a>
+      </div>
+      <div class="mb-4 text-center">
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+          Login
+        </button>
       </div>
     </form>
   </div>
