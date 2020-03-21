@@ -1,6 +1,6 @@
 <template>
   <div class="px-4 flex flex-col w-full h-screen justify-center items-center">
-    <section class="shadow pt-12 pb-12 pl-6 pr-6 min-w-80 max-w-full rounded-lg">
+    <section class="shadow pt-12 pb-12 pl-6 pr-6 max-w-80 w-full rounded-lg">
       <div class="w-full mb-4">
         <h1 class="text-center font-semibold text-2xl">Login</h1>
       </div>

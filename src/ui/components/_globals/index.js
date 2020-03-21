@@ -4,6 +4,7 @@ import SelectField from './Form/SelectField.vue';
 import LabelText from './Form/LabelText.vue';
 import Button from './Button.vue';
 import Modal from './Modal.vue';
+import ViewWrapper from './ViewWrapper.vue';
 import LoadingSpinner from './Loading/Spinner.vue';
 import { DialogProgrammatic, Dialog } from './Dialog/dialog';
 
@@ -17,6 +18,7 @@ const Plugin = {
     Vue.component('Dialog', Dialog);
     Vue.component('Button', Button);
     Vue.component('Modal', Modal);
+    Vue.component('ViewWrapper', ViewWrapper);
     Vue.component('LoadingSpinner', LoadingSpinner);
 
     Vue.prototype.$ui.dialog = DialogProgrammatic;
