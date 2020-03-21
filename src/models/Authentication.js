@@ -4,8 +4,12 @@ import { ACCESS_TOKEN } from '../config/localStorageVariables';
 export default {
   data() {
     return {
-      token: null,
-      user: null,
+      token: '312zi36781264798236478123678326',
+      user: {
+        firstname: 'Vorname',
+        name: 'Nachname',
+        role: 'student',
+      },
     };
   },
 
@@ -13,9 +17,28 @@ export default {
     this.reAuthenticate();
   },
 
+  watch: {
+    $route: {
+      immediate: true,
+      handler(to, from) {
+        if (
+          (to.meta.authRequired && this.token)
+          && (to.meta.role !== 'all' && to.meta.role !== this.user.role)
+        ) {
+          this.$router.push(from?.path || '/home');
+        } else if (!to.meta.authRequired && this.token) {
+          this.$router.push('/home');
+        } else if (to.meta.authRequired && !this.token) {
+          this.$router.push('/login');
+        } else {
+          // Go To Route
+        }
+      },
+    },
+  },
+
   methods: {
     login(email, password) {
-      console.log(email, password);
       authentication.login({
         email,
         password,
@@ -24,6 +47,20 @@ export default {
         localStorage.setItem(ACCESS_TOKEN, this.token);
         this.getUserData().then(() => {
           this.$router.push('/home');
+        });
+      });
+    },
+    signup({ email, password, username, firstname, name }) {
+      authentication.signup({
+        email, password, username, firstname, name,
+      }).then(() => {
+        this.$ui.dialog.alert({
+          title: this.$t('signupWasSuccessful'),
+          message: this.$t('goToLoginAndLoginWithYourData'),
+          confirmText: this.$t('signInNow'),
+          onConfirm: () => {
+            this.$router.push('/login');
+          },
         });
       });
     },

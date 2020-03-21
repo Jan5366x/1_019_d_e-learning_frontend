@@ -2,6 +2,7 @@ import TextField from './Form/TextField.vue';
 import TextArea from './Form/TextArea.vue';
 import SelectField from './Form/SelectField.vue';
 import LabelText from './Form/LabelText.vue';
+import PasswordSecurity from './Form/PasswordSecurity.vue';
 import Button from './Button.vue';
 import Modal from './Modal.vue';
 import ViewWrapper from './ViewWrapper.vue';
@@ -19,6 +20,7 @@ const Plugin = {
     Vue.component('Button', Button);
     Vue.component('Modal', Modal);
     Vue.component('ViewWrapper', ViewWrapper);
+    Vue.component('PasswordSecurity', PasswordSecurity);
     Vue.component('LoadingSpinner', LoadingSpinner);
 
     Vue.prototype.$ui.dialog = DialogProgrammatic;

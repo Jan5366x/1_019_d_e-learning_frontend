@@ -11,14 +11,19 @@
             @submit.prevent="signup"
           >
             <TextField
-              v-model="form.firstName"
+              v-model="form.firstname"
               :label="$t('firstName')"
               required
               autofocus
             />
             <TextField
-              v-model="form.lastName"
+              v-model="form.name"
               :label="$t('lastName')"
+              required
+            />
+            <TextField
+              v-model="form.username"
+              :label="$t('username')"
               required
             />
             <TextField
@@ -34,7 +39,17 @@
               required
               type="password"
             />
-            <Button theme="primary" class="w-full" type="submit">
+            <PasswordSecurity
+              v-model="passwordSecurity"
+              :password="form.password"
+              show-warning
+            />
+            <Button
+              theme="primary"
+              class="w-full"
+              type="submit"
+              :disabled="passwordSecurity <= 1"
+            >
               {{ $t('signUp') }}
             </Button>
             <div class="flex my-4 items-center">
@@ -57,17 +72,19 @@ export default {
   data() {
     return {
       form: {
-        firstName: null,
-        lastName: null,
+        firstname: null,
+        name: null,
+        username: null,
         email: null,
         password: null,
       },
+      passwordSecurity: 0,
     };
   },
 
   methods: {
     signup() {
-      // this.Authentication.login(this.email, this.password);
+      this.Authentication.signup(this.form);
     },
   },
 };

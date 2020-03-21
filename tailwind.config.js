@@ -35,6 +35,7 @@ module.exports = {
     width: ['responsive', 'touch'],
     userSelect: ['responsive', 'touch'],
     overflow: ['responsive', 'touch'],
+    backgroundColor: ['responsive', 'hover', 'focus', 'active'],
   },
   plugins: [
     safeAreaSpacing,

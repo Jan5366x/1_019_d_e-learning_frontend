@@ -17,14 +17,19 @@ export default {
   newHere: 'Neu hier?',
   haveAlreadyAnAccount: 'Hast du schon einen Account?',
   signInNow: 'Jetzt einloggen',
+  signupWasSuccessful: 'Registrierung war erfolgreich',
+  goToLoginAndLoginWithYourData: 'Gehe zum Login und melde dich mit deinen Anmeldedaten an.',
   firstName: 'Vorname',
   lastName: 'Nachname',
+  username: 'Benutzername',
   classroom: 'Klassenzimmer',
   dashboard: 'Dashboard',
   teacher_dashboard: {
+    title: 'Dashboard',
     teachers_room: 'Lehrerzimmer',
   },
   student_dashboard: {
     open_tasks: 'Offene Aufgaben',
   },
+  passwordIsInsecure: 'Das Passwort ist nicht sicher.',
 };
