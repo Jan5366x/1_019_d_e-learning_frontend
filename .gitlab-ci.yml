@@ -5,6 +5,7 @@ stages:
   - build
   - deploy
 
+# lint
 lint:
   stage: test
   before_script:
@@ -12,6 +13,7 @@ lint:
   script:
     - npm run lint
 
+# build
 build:
   stage: build
   artifacts: 
@@ -21,7 +23,8 @@ build:
     - npm install > /dev/null
   script:
     - npm run build:production
-
+        
+# deploy to production bucket
 deploy:
   image: napp/docker-aws-cli
   stage: deploy
@@ -31,4 +34,18 @@ deploy:
     - aws configure set aws_access_key_id $CI_AWS_ACCESS_KEY_ID
     - aws configure set aws_secret_access_key $CI_AWS_SECRET_ACCESS_KEY
     - aws configure set region eu-central-1
+    - touch ./dist/VERSION && echo ${CI_COMMIT_BEFORE_SHA} >> ./dist/VERSION
     - aws s3 cp ./dist/ $CI_AWS_BUCKET_URI --recursive
+
+# deploy to development bucket
+deploy-dev:
+  image: napp/docker-aws-cli
+  stage: deploy
+  only:
+    - develop
+  script:
+    - aws configure set aws_access_key_id $CI_AWS_ACCESS_KEY_ID
+    - aws configure set aws_secret_access_key $CI_AWS_SECRET_ACCESS_KEY
+    - aws configure set region eu-central-1
+    - touch ./dist/VERSION && echo ${CI_COMMIT_BEFORE_SHA} >> ./dist/VERSION
+    - aws s3 cp ./dist/ $CI_AWS_BUCKET_URI-dev --recursive
