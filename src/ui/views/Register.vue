@@ -14,21 +14,31 @@
               v-model="form.firstname"
               :label="$t('firstName')"
               required
+              :minlength="3"
+              :maxlength="50"
               autofocus
             />
             <TextField
               v-model="form.name"
               :label="$t('lastName')"
+              :minlength="3"
+              :maxlength="50"
               required
             />
             <TextField
               v-model="form.username"
               :label="$t('username')"
+              :minlength="6"
+              :maxlength="50"
+              :custom-error="userNameInUse ? true : false"
+              :custom-error-msg="$t('usernameAlreadyInUse')"
               required
             />
             <TextField
               v-model="form.email"
               :label="$t('email')"
+              :custom-error="emailInUse ? true : false"
+              :custom-error-msg="$t('emailAlreadyInUse')"
               required
               type="email"
             />
@@ -79,12 +89,36 @@ export default {
         password: null,
       },
       passwordSecurity: 0,
+
+      emailInUse: false,
+      userNameInUse: false,
     };
   },
 
   methods: {
     signup() {
-      this.Authentication.signup(this.form);
+      this.Authentication.signup(this.form)
+        .then(() => {
+          this.form = {
+            firstname: null,
+            name: null,
+            username: null,
+            email: null,
+            password: null,
+          };
+          this.passwordSecurity = 0;
+
+          this.emailInUse = false;
+          this.userNameInUse = false;
+        })
+        .catch((err) => {
+          const error = err.response.data;
+          if (error.message === 'EMAIL_ALREADY_REGISTERED') {
+            this.emailInUse = true;
+          } else if (error.message === 'USERNAME_ALREADY_REGISTERED') {
+            this.userNameInUse = true;
+          }
+        });
     },
   },
 };

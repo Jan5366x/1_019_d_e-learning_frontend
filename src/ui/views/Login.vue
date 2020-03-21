@@ -13,6 +13,8 @@
             <TextField
               v-model="email"
               :label="$t('email')"
+              :custom-error="loginError ? true : false"
+              :custom-error-msg="$t('loginError')"
               required
               autofocus
               type="email"
@@ -50,12 +52,18 @@ export default {
     return {
       email: null,
       password: null,
+
+      loginError: false,
     };
   },
 
   methods: {
     login() {
-      this.Authentication.login(this.email, this.password);
+      this.Authentication.login(this.email, this.password)
+        .catch(() => {
+          this.loginError = true;
+          this.password = null;
+        });
     },
   },
 };

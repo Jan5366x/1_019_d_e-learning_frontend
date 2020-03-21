@@ -7,6 +7,8 @@ import Button from './Button.vue';
 import Modal from './Modal.vue';
 import ViewWrapper from './ViewWrapper.vue';
 import LoadingSpinner from './Loading/Spinner.vue';
+import Navbar from './Navigation/Navbar.vue';
+import NavbarItem from './Navigation/Navbar/Item.vue';
 import { DialogProgrammatic, Dialog } from './Dialog/dialog';
 
 const Plugin = {
@@ -19,6 +21,8 @@ const Plugin = {
     Vue.component('Dialog', Dialog);
     Vue.component('Button', Button);
     Vue.component('Modal', Modal);
+    Vue.component('Navbar', Navbar);
+    Vue.component('NavbarItem', NavbarItem);
     Vue.component('ViewWrapper', ViewWrapper);
     Vue.component('PasswordSecurity', PasswordSecurity);
     Vue.component('LoadingSpinner', LoadingSpinner);
