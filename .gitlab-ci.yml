@@ -1,0 +1,34 @@
+image: node:latest
+
+stages:
+  - test
+  - build
+  - deploy
+
+lint:
+  stage: test
+  before_script:
+    - npm install > /dev/null
+  script:
+    - npm run lint
+
+build:
+  stage: build
+  artifacts: 
+    paths:
+      - dist
+  before_script:
+    - npm install > /dev/null
+  script:
+    - npm run build:production
+
+deploy:
+  image: napp/docker-aws-cli
+  stage: deploy
+  only:
+    - master
+  script:
+    - aws configure set aws_access_key_id $CI_AWS_ACCESS_KEY_ID
+    - aws configure set aws_secret_access_key $CI_AWS_SECRET_ACCESS_KEY
+    - aws configure set region eu-central-1
+    - aws s3 cp ./dist/ $CI_AWS_BUCKET_URI --recursive
