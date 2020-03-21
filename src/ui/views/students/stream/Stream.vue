@@ -1,13 +1,9 @@
 <template>
-
+  <div>Strema</div>
 </template>
 
 <script>
-  export default {
-    name: 'Stream'
-  };
+export default {
+  name: 'Stream',
+};
 </script>
-
-<style scoped>
-
-</style>

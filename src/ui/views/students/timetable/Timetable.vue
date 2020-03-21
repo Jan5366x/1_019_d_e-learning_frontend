@@ -1,13 +1,9 @@
 <template>
-
+  <ViewWrapper />
 </template>
 
 <script>
-  export default {
-    name: 'Timetable'
-  };
+export default {
+  name: 'Timetable',
+};
 </script>
-
-<style scoped>
-
-</style>

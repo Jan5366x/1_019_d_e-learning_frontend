@@ -7,7 +7,3 @@ export default {
   name: 'StudentsRoom',
 };
 </script>
-
-<style scoped>
-
-</style>
