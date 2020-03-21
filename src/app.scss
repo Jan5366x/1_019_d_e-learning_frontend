@@ -1,3 +1,4 @@
+@import "assets/fonts/Inter/inter.css";
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
@@ -7,5 +8,6 @@ body {
     // fix font rendering for macos devices
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-family: Inter, sans-serif;
   }
 }
