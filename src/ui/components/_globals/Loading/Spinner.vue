@@ -1,5 +1,8 @@
 <template>
-  <div x-component="LoadingDualRing" class="lds-dual-ring" :class="`theme-${theme}`" />
+  <div class="spinner">
+    <div class="double-bounce1" :class="theme" />
+    <div class="double-bounce2" :class="theme" />
+  </div>
 </template>
 
 <script>
@@ -15,38 +18,52 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.lds-dual-ring {
+.spinner {
   display: inline-flex;
   width: 24px;
   height: 24px;
+  position: relative;
 }
-.lds-dual-ring:after {
-  content: " ";
-  display: block;
-  width: 20px;
-  height: 20px;
-  margin: 2px;
+
+.double-bounce1, .double-bounce2 {
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
-  animation: lds-dual-ring 1.2s linear infinite;
-}
-.lds-dual-ring.theme-light:after {
-  border: 3px solid theme('colors.white');
-  border-color: theme('colors.white') transparent theme('colors.white') transparent;
-}
-.lds-dual-ring.theme-dark:after {
-  border: 3px solid theme('colors.gray.900');
-  border-color: theme('colors.gray.900') transparent theme('colors.gray.900') transparent;
-}
-.lds-dual-ring.theme-primary:after {
-  border: 3px solid theme('colors.teal.500');
-  border-color: theme('colors.teal.500') transparent theme('colors.teal.500') transparent;
-}
-@keyframes lds-dual-ring {
-  0% {
-    transform: rotate(0deg);
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+  animation: sk-bounce 2.0s infinite ease-in-out;
+
+  &.dark {
+    @apply bg-gray-800;
   }
-  100% {
-    transform: rotate(360deg);
+  &.light {
+    @apply bg-white;
+  }
+  &.primary {
+    @apply bg-black;
+  }
+}
+
+.double-bounce2 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+@-webkit-keyframes sk-bounce {
+  0%, 100% { -webkit-transform: scale(0.0) }
+  50% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bounce {
+  0%, 100% {
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 50% {
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
   }
 }
 </style>

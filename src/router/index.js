@@ -26,6 +26,11 @@ const routes = [
     component: () => import(/* webpackChunkName: "Login" */ '../ui/views/Login.vue'),
   },
   {
+    path: '/password-forgotten',
+    name: 'PasswordForgotten',
+    component: () => import(/* webpackChunkName: "PasswordForgotten" */ '../ui/views/PasswordForgotten.vue'),
+  },
+  {
     path: '/register',
     name: 'Register',
     component: () => import(/* webpackChunkName: "Register" */ '../ui/views/Register.vue'),
@@ -75,30 +80,30 @@ const routes = [
   {
     path: '/dashboard_student',
     name: 'Dashboard Student',
-    component: () => import(/* webpackChunkName: "DashboardTeacher" */ '../ui/views/Dashboard.vue'),
+    component: () => import(/* webpackChunkName: "DashboardStudent" */ '../ui/views/Dashboard.vue'),
     props: { role: 'student' },
     children: [
       {
         path: 'classroom',
-        component: () => import(/* webpackChunkName: "DashboardTeacher" */ '../ui/views/students/Classroom.vue'),
+        component: () => import(/* webpackChunkName: "DashboardStudent" */ '../ui/views/students/Classroom.vue'),
         children: [
           {
             path: 'timetable',
-            component: () => import(/* webpackChunkName: "DashboardTeacher" */ '../ui/views/students/timetable/Timetable.vue'),
+            component: () => import(/* webpackChunkName: "DashboardStudent" */ '../ui/views/students/timetable/Timetable.vue'),
           },
           {
             path: 'classroom',
-            component: () => import(/* webpackChunkName: "DashboardTeacher" */ '../ui/views/students/classroom/Classroom.vue'),
+            component: () => import(/* webpackChunkName: "DashboardStudent" */ '../ui/views/students/classroom/Classroom.vue'),
           },
           {
             path: 'stream',
-            component: () => import(/* webpackChunkName: "DashboardTeacher" */ '../ui/views/students/stream/Stream.vue'),
+            component: () => import(/* webpackChunkName: "DashboardStudent" */ '../ui/views/students/stream/Stream.vue'),
           },
         ],
       },
       {
         path: 'tasks',
-        component: () => import(/* webpackChunkName: "DashboardTeacher" */ '../ui/views/students/Tasks.vue'),
+        component: () => import(/* webpackChunkName: "DashboardStudent" */ '../ui/views/students/Tasks.vue'),
       },
     ],
   },

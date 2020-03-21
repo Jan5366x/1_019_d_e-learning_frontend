@@ -12,7 +12,7 @@
     @mouseout="$emit('mouseout')"
   >
     <slot v-if="!loading" />
-    <div v-else class="w-16">
+    <div v-else class="inline-flex w-16 justify-center items-center">
       <LoadingSpinner :theme="spinnerTheme" />
     </div>
   </button>
@@ -31,7 +31,7 @@
     @mouseout="$emit('mouseout')"
   >
     <slot v-if="!loading" />
-    <div v-else class="w-16">
+    <div v-else class="inline-flex w-16 justify-center items-center">
       <LoadingSpinner :theme="spinnerTheme" />
     </div>
   </a>
@@ -48,7 +48,7 @@
     @mouseout="$emit('mouseout')"
   >
     <slot v-if="!loading" />
-    <div v-else class="w-16">
+    <div v-else class="inline-flex w-16 justify-center items-center">
       <LoadingSpinner :theme="spinnerTheme" />
     </div>
   </router-link>

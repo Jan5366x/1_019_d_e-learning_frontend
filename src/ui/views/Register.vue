@@ -1,6 +1,6 @@
 <template>
-  <ViewWrapper>
-    <div class="flex flex-col w-full h-screen justify-center items-center">
+  <ViewWrapper class="h-screen">
+    <div class="flex flex-col w-full h-full justify-center items-center">
       <section class="max-w-80 w-full rounded-lg">
         <div class="w-full mb-4">
           <h1 class="text-center font-semibold text-2xl">{{ $t('signUp') }}</h1>

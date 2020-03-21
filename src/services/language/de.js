@@ -12,6 +12,8 @@ export default {
   logout: 'Logout',
   signUpNow: 'Jetzt registrieren',
   signUp: 'Registrieren',
+  resetPassword: 'Passwort zurücksetzen',
+  sendPasswordResetEmail: 'Hier kannst du eine E-Mail mit einem Link anfordern, mit dem du dein Passwort zurücksetzen können.',
   newHere: 'Neu hier?',
   haveAlreadyAnAccount: 'Hast du schon einen Account?',
   signInNow: 'Jetzt einloggen',
