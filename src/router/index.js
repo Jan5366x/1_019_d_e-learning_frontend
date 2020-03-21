@@ -88,15 +88,15 @@ const routes = [
         children: [
           {
             path: 'timetable',
-            component: () => import(/* webpackChunkName: "DashboardTeacher" */ '../ui/views/students/Classroom.vue'),
+            component: () => import(/* webpackChunkName: "DashboardTeacher" */ '../ui/views/students/timetable/Timetable.vue'),
           },
           {
             path: 'classroom',
-            component: () => import(/* webpackChunkName: "DashboardTeacher" */ '../ui/views/students/Tasks.vue'),
+            component: () => import(/* webpackChunkName: "DashboardTeacher" */ '../ui/views/students/classroom/Classroom.vue'),
           },
           {
             path: 'stream',
-            component: () => import(/* webpackChunkName: "DashboardTeacher" */ '../ui/views/students/Tasks.vue'),
+            component: () => import(/* webpackChunkName: "DashboardTeacher" */ '../ui/views/students/stream/Stream.vue'),
           },
         ],
       },
