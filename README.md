@@ -39,3 +39,5 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## Custom Global Variables
 - this.$moment = moment;
+- this.$hotkeys = hotkeys
+- this.$ui = CustomUIComponents (dialog)

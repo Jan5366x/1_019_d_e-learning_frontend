@@ -4,4 +4,9 @@ export default {
   dateFormat: 'DD.MM.YYYY',
   dateTimeFormat: 'DD.MM.YYYY HH:mm',
   hello: 'Hallo {n}!',
+  label: 'Label',
+  email: 'E-Mail',
+  password: 'Passwort',
+  forgotPassword: 'Passwort vergessen?',
+  login: 'Login',
 };

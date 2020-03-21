@@ -1,43 +1,51 @@
 <template>
-  <div class="px-6 py-4 bg-white shadow rounded-lg">
-    <h1 class="text-center">Login</h1>
-    <form class="form login-form">
-      <div class="mb-4">
-        <label for="username">Username</label>
-        <input
-          id="username"
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          type="text"
-          placeholder="Username"
-        >
-      </div>
-      <div class="mb-4">
-        <label for="username">Password</label>
-        <input
-          id="password"
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+  <div class="px-4 flex flex-col w-full h-screen justify-center items-center">
+    <div class="w-full mb-4">
+      <h1 class="text-center font-semibold text-2xl">Login</h1>
+    </div>
+    <div class="w-full md:w-4/12 ">
+      <form
+        class="form login-form"
+        @submit.prevent="login"
+      >
+        <TextField
+          v-model="email"
+          :label="$t('email')"
+          required
+          type="email"
+        />
+        <TextField
+          v-model="password"
+          :label="$t('password')"
+          required
           type="password"
-          placeholder="*************************"
-        >
-      </div>
-      <div class="mb-4 text-center">
-        <a href="#">Forgot Password?</a>
-      </div>
-      <div class="mb-4 text-center">
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-          Login
-        </button>
-      </div>
-    </form>
+        />
+        <div class="mb-4 text-sm">
+          <router-link to="/">{{ $t('forgotPassword') }}</router-link>
+        </div>
+        <Button theme="primary" class="w-full" type="submit">
+          {{ $t('login') }}
+        </Button>
+      </form>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Login',
+  injectModels: ['Authentication'],
+
+  data() {
+    return {
+      email: null,
+      password: null,
+    };
+  },
+
+  methods: {
+    login() {
+      this.Authentication.login(this.email, this.password);
+    },
+  },
 };
 </script>
-
-<style scoped>
-
-</style>
