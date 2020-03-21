@@ -5,15 +5,24 @@ export default {
     email,
     password,
   }) {
-    // return api.POST('login', {
-    //   email,
-    //   password,
-    // });
-    console.log(email, password);
-    return new Promise((res) => {
-      res({
-        token: 'QpwL5tke4Pnpja7X4',
-      });
+    return api.POST('user/login', {
+      email,
+      password,
+    });
+  },
+  signup({
+    email,
+    password,
+    username,
+    name,
+    firstname,
+  }) {
+    return api.POST('user/signup', {
+      email,
+      password,
+      username,
+      name,
+      firstname,
     });
   },
 };
