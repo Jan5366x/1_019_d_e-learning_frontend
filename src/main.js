@@ -7,6 +7,8 @@ import PortalVue from 'portal-vue';
 
 // custom imports
 import App from './App.vue';
+import Application from './models/Application';
+import Authentication from './models/Authentication';
 import './registerServiceWorker';
 import router from './router';
 import languages from './services/language';
@@ -31,6 +33,10 @@ Vue.config.productionTip = false;
 
 new Vue({
   i18n,
+  models: {
+    Application,
+    Authentication,
+  },
   router,
   render: (h) => h(App),
 }).$mount('#app');
