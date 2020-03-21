@@ -34,7 +34,9 @@ deploy:
     - aws configure set aws_access_key_id $CI_AWS_ACCESS_KEY_ID
     - aws configure set aws_secret_access_key $CI_AWS_SECRET_ACCESS_KEY
     - aws configure set region eu-central-1
-    - touch ./dist/VERSION && echo ${CI_COMMIT_BEFORE_SHA} >> ./dist/VERSION
+    - touch ./dist/VERSION && echo ${CI_COMMIT_SHA} >> ./dist/VERSION
+    # delete content and upload new build artifacts
+    - aws s3 rb $CI_AWS_BUCKET_URI --force
     - aws s3 cp ./dist/ $CI_AWS_BUCKET_URI --recursive
 
 # deploy to development bucket
@@ -47,5 +49,7 @@ deploy-dev:
     - aws configure set aws_access_key_id $CI_AWS_ACCESS_KEY_ID
     - aws configure set aws_secret_access_key $CI_AWS_SECRET_ACCESS_KEY
     - aws configure set region eu-central-1
-    - touch ./dist/VERSION && echo ${CI_COMMIT_BEFORE_SHA} >> ./dist/VERSION
+    # delete content and upload new build artifacts
+    - aws s3 rb $CI_AWS_BUCKET_URI --force
+    - touch ./dist/VERSION && echo ${CI_COMMIT_SHA} >> ./dist/VERSION
     - aws s3 cp ./dist/ $CI_AWS_BUCKET_URI-dev --recursive
