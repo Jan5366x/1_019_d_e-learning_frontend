@@ -9,4 +9,5 @@ export default {
   password: 'Passwort',
   forgotPassword: 'Passwort vergessen?',
   login: 'Login',
+  logout: 'Logout',
 };

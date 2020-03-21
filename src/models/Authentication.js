@@ -23,7 +23,7 @@ export default {
         this.token = resp.token;
         localStorage.setItem(ACCESS_TOKEN, this.token);
         this.getUserData().then(() => {
-          this.$router.push('/');
+          this.$router.push('/home');
         });
       });
     },
@@ -36,15 +36,21 @@ export default {
       });
     },
     reAuthenticate() {
+      // TODO: Check token expiring time
       const token = localStorage.getItem(ACCESS_TOKEN, this.token);
-      if (user) {
+      if (token) {
         this.token = token;
-        this.getUserData().then(() => {
-          const route = this.$route.path;
-          if (route === '/login') this.$router.push('/');
-          else this.$router.push(route);
-        });
+        this.getUserData();
+      } else {
+        this.$router.push('/login');
       }
+    },
+    logout() {
+      // TODO: Logout
+      localStorage.removeItem(ACCESS_TOKEN);
+      this.token = null;
+      this.user = null;
+      this.$router.push('/login');
     },
   },
 };

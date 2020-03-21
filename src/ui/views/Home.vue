@@ -22,7 +22,7 @@
       Dialog
     </Button>
     <Button theme="secondary" class="mr-2" @click="modal = true">Modal</Button>
-    <Button>Noch ein Button</Button>
+    <Button @click="Authentication.logout">{{ $t('logout') }}</Button>
 
     <Portal to="modal">
       <Modal v-model="modal" modal-class="w-64">

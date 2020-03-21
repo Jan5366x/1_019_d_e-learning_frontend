@@ -13,7 +13,7 @@
   >
     <slot v-if="!loading" />
     <div v-else class="w-16">
-      <LoadingDots />
+      <LoadingSpinner :theme="spinnerTheme" />
     </div>
   </button>
   <a
@@ -32,7 +32,7 @@
   >
     <slot v-if="!loading" />
     <div v-else class="w-16">
-      <LoadingDots />
+      <LoadingSpinner :theme="spinnerTheme" />
     </div>
   </a>
   <router-link
@@ -49,7 +49,7 @@
   >
     <slot v-if="!loading" />
     <div v-else class="w-16">
-      <LoadingDots />
+      <LoadingSpinner :theme="spinnerTheme" />
     </div>
   </router-link>
 </template>
@@ -110,6 +110,12 @@ export default {
         '': this.minWidth,
         'cursor-wait': this.loading,
       };
+    },
+    spinnerTheme() {
+      if (this.theme === 'primary') {
+        return 'light';
+      }
+      return 'dark';
     },
   },
 
