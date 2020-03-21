@@ -1,10 +1,10 @@
 <template>
-  <section>
+  <ViewWrapper>
     <TeacherDashboard v-if="$route.params.role === 'teacher'">
     </TeacherDashboard>
     <StudentDashboard v-if="$route.params.role === 'student'">
     </StudentDashboard>
-  </section>
+  </ViewWrapper>
 </template>
 
 <script>

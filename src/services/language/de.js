@@ -19,9 +19,12 @@ export default {
   signInNow: 'Jetzt einloggen',
   firstName: 'Vorname',
   lastName: 'Nachname',
-  dashboard: {
-    title: 'Dashboard',
+  classroom: 'Klassenzimmer',
+  dashboard: 'Dashboard',
+  teacher_dashboard: {
     teachers_room: 'Lehrerzimmer',
-    students_room: 'Schülerzimmer',
+  },
+  student_dashboard: {
+    open_tasks: 'Offene Aufgaben',
   },
 };
