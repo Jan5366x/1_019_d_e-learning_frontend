@@ -10,8 +10,15 @@ export default {
   forgotPassword: 'Passwort vergessen?',
   login: 'Login',
   logout: 'Logout',
-  dashboard: 'Dashboard',
-  teacher_dashboard: {
+  signUpNow: 'Jetzt registrieren',
+  signUp: 'Registrieren',
+  newHere: 'Neu hier?',
+  haveAlreadyAnAccount: 'Hast du schon einen Account?',
+  signInNow: 'Jetzt einloggen',
+  firstName: 'Vorname',
+  lastName: 'Nachname',
+  dashboard: {
+    title: 'Dashboard',
     teachers_room: 'Lehrerzimmer',
     students_room: 'Schülerzimmer',
   },
