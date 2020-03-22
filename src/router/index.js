@@ -81,7 +81,7 @@ const routes = [
   {
     path: '/course/:id',
     component: () => import(/* webpackChunkName: "TeachersRoom" */ '../ui/views/course/Course.vue'),
-    // redirect: '/course/:id',
+    redirect: '/course/:id/lessons',
     meta: { ...authRequired('all') },
     children: [
       {
