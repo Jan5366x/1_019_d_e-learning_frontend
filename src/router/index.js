@@ -66,11 +66,6 @@ const routes = [
         meta: { ...authRequired('teacher') },
       },
       {
-        path: 'teachroom',
-        component: () => (/* webpackChunkName: "TeachersRoom" */ './ui/views/teacher/timetable/TeachRoom.vue'),
-        meta: { ...authRequired('teacher') },
-      },
-      {
         path: 'courses',
         component: () => import(/* webpackChunkName: "TeachersRoom" */ '../ui/views/teacher/courses/Courses.vue'),
         meta: { ...authRequired('teacher') },

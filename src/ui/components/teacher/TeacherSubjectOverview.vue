@@ -7,7 +7,17 @@
         </Headline2>
       </button>
       <div v-if="isActive">
-        <CourseLink to="/course/">
+        <CourseLink :to="'/course/a0sd78f9sd87f097f97'">
+          {{ subject }} 7
+        </CourseLink>
+        <CourseLink :to="'/course/a0sd78f9sd87f097f97'">
+          {{ subject }} 8
+        </CourseLink>
+        <CourseLink :to="'/course/a0sd78f9sd87f097f97'">
+          {{ subject }} 9
+        </CourseLink>
+        <CourseLink :to="'/course/a0sd78f9sd87f097f97'">
+          {{ subject }} 10
         </CourseLink>
       </div>
     </Card>

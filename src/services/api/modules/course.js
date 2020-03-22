@@ -1,5 +1,7 @@
 import api from '../config/index';
 import authHeader from '../config/authHeader';
+import coursesData from '../../courses/subject';
+import courseData from '../../course/subject';
 
 export default {
   getAll({ _token }) {
@@ -51,5 +53,11 @@ export default {
     return api.DELETE(`course/${id}`, {
       ...authHeader(_token),
     });
+  },
+  getById(id) {
+    return courseData;
+  },
+  get() {
+    return coursesData;
   },
 };
