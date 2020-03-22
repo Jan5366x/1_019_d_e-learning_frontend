@@ -71,7 +71,7 @@ export default {
         .then(() => {
           this.loading = false;
         })
-        .catch((err) => {
+        .catch(() => {
           this.loginError = true;
           this.password = null;
           this.loading = false;
