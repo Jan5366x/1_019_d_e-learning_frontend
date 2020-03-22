@@ -5,14 +5,24 @@
   >
     <a
       :href="href"
-      class="px-4 py-2 leading-relaxed text-center border-b-2 hover:bg-gray-300
-      focus:outline-none transition duration-150 rounded-t-lg"
+      class="flex items-center px-4 py-2 leading-relaxed text-center border-b-2 hover:bg-gray-300
+      focus:outline-none transition duration-150 rounded-t-lg font-medium"
       :class="{
-        'text-black border-black bg-gray-200': isExactActive,
+        'text-blue-500 border-blue-500 bg-gray-200': isExactActive,
         'text-gray-700 border-transparent': !isExactActive,
       }"
       @click="navigate"
     >
+      <Icon
+        v-if="icon"
+        :name="icon"
+        size="xl"
+        class="mr-2 transition duration-150"
+        :class="{
+          'text-gray-600': !isExactActive,
+          'text-blue-600': isExactActive,
+        }"
+      />
       <slot />
     </a>
   </router-link>
@@ -26,6 +36,10 @@ export default {
     to: {
       type: String,
       default: '',
+    },
+    icon: {
+      type: String,
+      default: null,
     },
   },
 };

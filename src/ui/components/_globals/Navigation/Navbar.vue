@@ -73,7 +73,7 @@
       </div>
     </div>
     <div
-      class="sm:hidden absolute top-0 left-0 w-full h-screen bg-black opacity-25 z-2
+      class="sm:hidden absolute top-0 left-0 w-full h-screen bg-blue-500 opacity-25 z-2
       transition duration-150"
       :class="{'visible': open, 'invisible opacity-0': !open}"
       @click="open = false"

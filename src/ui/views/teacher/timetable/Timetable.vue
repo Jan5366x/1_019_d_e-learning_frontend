@@ -34,6 +34,10 @@
             {{ $moment(selectedWeek.start).format($t('dateFormat')) }}
           </div>
         </template>
+        <LessonCard color="purple">
+          Integralrechnung 1
+          <template v-slot:course>Mathe LK 12</template>
+        </LessonCard>
         <LessonCard color="blue">
           Edelmetalle 1
           <template v-slot:course>Chemie 8b</template>
@@ -79,7 +83,11 @@
           <template v-slot:course>Chemie GK 11</template>
         </LessonCard>
         <LessonCard color="purple">
-          Integralrechnung 1
+          Integralrechnung 2
+          <template v-slot:course>Mathe LK 12</template>
+        </LessonCard>
+        <LessonCard color="purple">
+          Integralrechnung 3
           <template v-slot:course>Mathe LK 12</template>
         </LessonCard>
       </Card>
@@ -121,6 +129,10 @@
         <LessonCard color="green">
           Erdöl 2
           <template v-slot:course>Chemie LK 12</template>
+        </LessonCard>
+        <LessonCard color="purple">
+          Integralrechnung 4
+          <template v-slot:course>Mathe LK 12</template>
         </LessonCard>
       </Card>
     </div>

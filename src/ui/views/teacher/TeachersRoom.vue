@@ -5,9 +5,9 @@
 
       <template v-slot:bottom>
         <Tabs>
-          <TabItem to="timetable"> <Icon name="event"></Icon> {{ $t('timetable') }}</TabItem>
-          <TabItem to="teach_room"> <Icon name="chat"></Icon> {{ $t('teacher_room') }}</TabItem>
-          <TabItem to="courses"> <Icon name="play_circle_outline"></Icon> {{ $tc('course', 2) }}</TabItem>
+          <TabItem to="timetable" icon="event">{{ $t('timetable') }}</TabItem>
+          <TabItem to="teach_room" icon="forum">{{ $t('teacher_room') }}</TabItem>
+          <TabItem to="courses" icon="play_circle_outline">{{ $tc('course', 2) }}</TabItem>
         </Tabs>
       </template>
     </HeadWrapper>
