@@ -43,7 +43,7 @@ export default {
     @apply bg-white;
   }
   &.primary {
-    @apply bg-black;
+    @apply bg-blue-500;
   }
 }
 
