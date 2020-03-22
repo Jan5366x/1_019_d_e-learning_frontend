@@ -14,6 +14,7 @@ import Dropdown from './Dropdown.vue';
 import DropdownItem from './DropdownItem.vue';
 import Icon from './Icon.vue';
 import Card from './Card.vue';
+import DividingHeader from './DividingHeader.vue';
 import Tabs from './Tabs/Tabs.vue';
 import TabItem from './Tabs/TabItem.vue';
 import Headline1 from './Typography/Headline1.vue';
@@ -40,6 +41,7 @@ const Plugin = {
     Vue.component('LoadingSpinner', LoadingSpinner);
     Vue.component('Icon', Icon);
     Vue.component('Card', Card);
+    Vue.component('DividingHeader', DividingHeader);
     Vue.component('Tabs', Tabs);
     Vue.component('TabItem', TabItem);
     Vue.component('Headline1', Headline1);
