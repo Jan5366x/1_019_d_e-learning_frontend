@@ -18,6 +18,9 @@ import TeacherDashboard from '../components/teacher/TeacherDashboard.vue';
 
 export default {
   name: 'Dashboard',
-  components: { TeacherDashboard, StudentDashboard },
+  components: {
+    TeacherDashboard,
+    StudentDashboard,
+  },
 };
 </script>

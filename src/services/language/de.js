@@ -25,8 +25,7 @@ export default {
   classroom: 'Klassenzimmer',
   teacher_room: 'Lehrerraum',
   timetable: 'Stundenplan',
-  course: 'Kurs',
-  courses: 'Kurse',
+  course: 'Kurs | Kurse',
   dashboard: 'Dashboard',
   reminder: 'Erinnerungen',
   teacher_dashboard: {
@@ -48,4 +47,5 @@ export default {
   iAm: 'Ich bin',
   teacher: 'Lehrer',
   student: 'Schüler',
+  teachers_room: 'Lehrerzimmer',
 };

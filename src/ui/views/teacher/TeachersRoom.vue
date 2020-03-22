@@ -1,7 +1,15 @@
 <template>
   <section>
     <HeadWrapper>
-      <Headline1>{{ $t('teacher_room') }}</Headline1>
+      <Headline1>{{ $t('teachers_room') }}</Headline1>
+
+      <template v-slot:bottom>
+        <Tabs>
+          <TabItem to="timetable">{{ $t('timetable') }}</TabItem>
+          <TabItem to="teach_room">{{ $t('teacher_room') }}</TabItem>
+          <TabItem to="courses">{{ $tc('course', 2) }}</TabItem>
+        </Tabs>
+      </template>
     </HeadWrapper>
     <ViewWrapper>
       <router-view />
