@@ -12,6 +12,7 @@ module.exports = {
     // extend default tailwind configs
     extend: {
       zIndex: {
+        2: '2',
         21: '21',
       },
       screens: {

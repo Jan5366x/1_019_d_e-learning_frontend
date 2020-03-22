@@ -13,6 +13,8 @@
             <TextField
               v-model="email"
               :label="$t('email')"
+              :custom-error="loginError ? true : false"
+              :custom-error-msg="$t('loginError')"
               required
               autofocus
               type="email"
@@ -26,7 +28,12 @@
             <div class="mb-4 text-sm">
               <router-link to="/password-forgotten">{{ $t('forgotPassword') }}</router-link>
             </div>
-            <Button theme="primary" class="w-full" type="submit">
+            <Button
+              theme="primary"
+              class="w-full"
+              type="submit"
+              :loading="loading"
+            >
               {{ $t('login') }}
             </Button>
             <div class="flex my-4 items-center">
@@ -50,12 +57,24 @@ export default {
     return {
       email: null,
       password: null,
+
+      loginError: false,
+      loading: false,
     };
   },
 
   methods: {
     login() {
-      this.Authentication.login(this.email, this.password);
+      this.loading = true;
+      this.Authentication.login(this.email, this.password)
+        .then(() => {
+          this.loading = false;
+        })
+        .catch(() => {
+          this.loginError = true;
+          this.password = null;
+          this.loading = false;
+        });
     },
   },
 };

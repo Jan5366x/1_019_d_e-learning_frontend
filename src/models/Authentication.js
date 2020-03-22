@@ -1,15 +1,11 @@
 import { authentication, user } from '../services/api';
-import { ACCESS_TOKEN } from '../config/localStorageVariables';
+import { ACCESS_TOKEN, UID } from '../config/localStorageVariables';
 
 export default {
   data() {
     return {
-      token: '312zi36781264798236478123678326',
-      user: {
-        firstname: 'Vorname',
-        name: 'Nachname',
-        role: 'teacher',
-      },
+      token: null,
+      user: null,
     };
   },
 
@@ -39,34 +35,49 @@ export default {
 
   methods: {
     login(email, password) {
-      authentication.login({
-        email,
-        password,
-      }).then((resp) => {
-        this.token = resp.token;
-        localStorage.setItem(ACCESS_TOKEN, this.token);
-        this.getUserData().then(() => {
+      return new Promise((res, rej) => {
+        authentication.login({
+          email,
+          password,
+        }).then((resp) => {
+          this.token = resp.data.token;
+          this.user = resp.data.user;
+          this.user.role = 'student';
+          localStorage.setItem(ACCESS_TOKEN, this.token);
+          localStorage.setItem(UID, btoa(JSON.stringify(this.user)));
           this.$router.push('/home');
+          res(resp.data);
+          // Todo: implement get user data => backend
+          // this.getUserData(this.user._id).then(() => {
+          //   this.$router.push('/home');
+          // });
+        }).catch((err) => {
+          rej(err);
         });
       });
     },
     signup({ email, password, username, firstname, name }) {
-      authentication.signup({
-        email, password, username, firstname, name,
-      }).then(() => {
-        this.$ui.dialog.alert({
-          title: this.$t('signupWasSuccessful'),
-          message: this.$t('goToLoginAndLoginWithYourData'),
-          confirmText: this.$t('signInNow'),
-          onConfirm: () => {
-            this.$router.push('/login');
-          },
+      return new Promise((res, rej) => {
+        authentication.signup({
+          email, password, username, firstname, name,
+        }).then(() => {
+          res();
+          this.$ui.dialog.alert({
+            title: this.$t('signupWasSuccessful'),
+            message: this.$t('goToLoginAndLoginWithYourData'),
+            confirmText: this.$t('signInNow'),
+            onConfirm: () => {
+              this.$router.push('/login');
+            },
+          });
+        }).catch((err) => {
+          rej(err);
         });
       });
     },
-    getUserData() {
+    getUserData(id) {
       return new Promise((res) => {
-        user.getData(2).then((user) => {
+        user.getData(id).then((user) => {
           this.user = user.data;
           res(user.data);
         });
@@ -74,10 +85,14 @@ export default {
     },
     reAuthenticate() {
       // TODO: Check token expiring time
-      const token = localStorage.getItem(ACCESS_TOKEN, this.token);
+      const token = localStorage.getItem(ACCESS_TOKEN);
+      const uid = localStorage.getItem(UID);
+      const user = JSON.parse(atob(uid));
       if (token) {
         this.token = token;
-        this.getUserData();
+        this.user = user;
+        // Todo: implement get user data => backend
+        // this.getUserData(uid);
       } else if (this.$route.meta.authRequired) {
         this.$router.push('/login');
       }
@@ -85,6 +100,7 @@ export default {
     logout() {
       // TODO: Logout
       localStorage.removeItem(ACCESS_TOKEN);
+      localStorage.removeItem(UID);
       this.token = null;
       this.user = null;
       this.$router.push('/login');

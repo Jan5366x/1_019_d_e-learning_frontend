@@ -32,4 +32,9 @@ export default {
     open_tasks: 'Offene Aufgaben',
   },
   passwordIsInsecure: 'Das Passwort ist nicht sicher.',
+  emailAlreadyInUse: 'Die E-Mail wird bereits verwendet.',
+  usernameAlreadyInUse: 'Der Benutzername wird bereits verwendet.',
+  loginError: 'Die Anmeldedaten sind falsch.',
+  settings: 'Einstellungen',
+  myAccount: 'Mein Konto',
 };

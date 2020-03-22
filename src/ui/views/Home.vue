@@ -36,9 +36,6 @@
           </template>
         </Modal>
       </Portal>
-      <Portal to="dialog">
-        <div>Dialog Test</div>
-      </Portal>
     </div>
   </ViewWrapper>
 </template>
@@ -59,7 +56,7 @@ export default {
   computed: {
     userName() {
       if (this.Authentication.user) {
-        return `${this.Authentication.user.firstName} ${this.Authentication.user.lastName}`;
+        return `${this.Authentication.user.firstname} ${this.Authentication.user.name}`;
       }
       return '';
     },
