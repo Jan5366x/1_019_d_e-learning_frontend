@@ -156,7 +156,8 @@ router.beforeEach((to, from, next) => {
   } else if (to.meta.authRequired && !token) {
     next({ name: 'Login' });
   } else if (!to.meta.authRequired && token) {
-    next(false);
+    if (user.role === 'teacher') next({ name: 'DashboardTeacher' });
+    else if (user.role === 'student') next({ name: 'DashboardStudent' });
   } else if (to.meta.authRequired && token && (to.meta.role === 'all' || user.role === to.meta.role)) {
     next();
   } else if (to.meta.authRequired && token && user.role !== to.meta.role) {
