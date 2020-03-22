@@ -5,7 +5,7 @@
   >
     <a
       class="block sm:inline-block px-3 py-2 rounded-md text-base font-medium leading-5 text-white mr-2
-      focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out
+      focus:outline-none focus:text-white transition duration-150 ease-in-out
       mb-1 sm:mb-0"
       :href="href"
       :class="{
