@@ -15,8 +15,8 @@
             <div class="font-medium text-lg">
               Integralrechnung 1
             </div>
-            <div class="text-sm text-gray-700">
-              25.03.2020 – 09:15
+            <div class="mt-1 text-blue-800 text-xs bg-blue-200 rounded-lg inline-flex px-1">
+              <Icon name="group" size="base mr-px" /> 23 Schüler online
             </div>
           </div>
           <LoadingSpinner theme="primary" class="ml-2" />
@@ -32,7 +32,7 @@
               Integralrechnung 2
             </div>
             <div class="text-sm text-gray-700">
-              25.03.2020 – 09:05
+              25.03.2020 – 10:20
             </div>
           </div>
         </div>
@@ -50,7 +50,7 @@
       <div class="flex justify-between items-center">
         <div>
           <div class="font-medium text-lg">
-            Integralrechnung 2
+            Integralrechnung 3
           </div>
           <div class="text-sm text-gray-700">
             25.03.2020 – 11:00
@@ -63,7 +63,7 @@
       <div class="flex justify-between items-center">
         <div>
           <div class="font-medium text-lg">
-            Integralrechnung 3
+            Integralrechnung 4
           </div>
           <div class="text-sm text-gray-700">
             26.03.2020 – 07:40
@@ -76,7 +76,7 @@
       <div class="flex justify-between items-center">
         <div>
           <div class="font-medium text-lg">
-            Integralrechnung 4
+            Integralrechnung 5
           </div>
           <div class="text-sm text-gray-700">
             26.03.2020 – 8:30
