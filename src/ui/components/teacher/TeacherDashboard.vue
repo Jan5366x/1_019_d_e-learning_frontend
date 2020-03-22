@@ -5,15 +5,21 @@
       <Card>
         <Headline2>{{ $t('teacher_dashboard.teachers_room') }}</Headline2>
         <div class="flex flex-col items-stretch justify-between">
-          <Button class="mt-4">
-            <Icon class="mr-1" name="play_circle_outline"></Icon> {{ $t('course') }}
-          </Button>
-          <Button class="mt-4">
-            <Icon class="mr-1" name="chat"></Icon> {{ $t('teacher_room') }}
-          </Button>
-          <Button class="mt-4 mb-2">
-            <Icon class="mr-1" name="event"></Icon> {{ $t('timetable') }}
-          </Button>
+          <router-link to="/teachers_room/teach_room/">
+            <Button class="mt-4">
+              <Icon class="mr-1" name="play_circle_outline"></Icon> {{ $t('course') }}
+            </Button>
+          </router-link>
+          <router-link to="/teachers_room/teach_room/">
+            <Button class="mt-4">
+              <Icon class="mr-1" name="chat"></Icon> {{ $t('teacher_room') }}
+            </Button>
+          </router-link>
+          <router-link to="/teachers_room/timetable/">
+            <Button class="mt-4 mb-2">
+              <Icon class="mr-1" name="event"></Icon> {{ $t('timetable') }}
+            </Button>
+          </router-link>
         </div>
       </Card>
       <Card>
