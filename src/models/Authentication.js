@@ -14,20 +14,6 @@ export default {
     this.reAuthenticate();
   },
 
-  // watch: {
-  //   $route: {
-  //     immediate: true,
-  //     handler(to, from) {
-  //       if (this.user && (to.meta.role === this.user.role)) {
-  //         // go
-  //       } else if (this.user) {
-  //         console.log('not same');
-  //         this.$router.push(`/dashboard_${this.user.role}`);
-  //       }
-  //     },
-  //   },
-  // },
-
   methods: {
     login(email, password) {
       return new Promise((res, rej) => {
@@ -40,7 +26,7 @@ export default {
           this.user.role = 'teacher';
           localStorage.setItem(ACCESS_TOKEN, this.token);
           localStorage.setItem(UID, btoa(JSON.stringify(this.user)));
-          this.$router.push('/home');
+          this.$router.push(`/dashboard_${this.user.role}`);
           res(resp.data);
           // Todo: implement get user data => backend
           // this.getUserData(this.user._id).then(() => {
@@ -81,9 +67,9 @@ export default {
     reAuthenticate() {
       // TODO: Check token expiring time
       const token = localStorage.getItem(ACCESS_TOKEN);
-      const uid = localStorage.getItem(UID);
-      const user = JSON.parse(atob(uid));
       if (token) {
+        const uid = localStorage.getItem(UID);
+        const user = JSON.parse(atob(uid));
         this.token = token;
         this.user = user;
         // Todo: implement get user data => backend
