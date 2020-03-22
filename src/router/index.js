@@ -53,6 +53,7 @@ const routes = [
     name: 'TeachersRoom',
     component: () => import(/* webpackChunkName: "TeachersRoom" */ '../ui/views/teacher/TeachersRoom.vue'),
     meta: { ...authRequired('teacher') },
+    redirect: '/teachers_room/timetable',
     children: [
       {
         path: 'teach_room',
@@ -148,7 +149,7 @@ router.beforeEach((to, from, next) => {
   const uid = localStorage.getItem(UID);
   let user = null;
   if (uid) {
-    user = JSON.parse(atob(uid));
+    user = JSON.parse(uid);
   }
   if (!to.meta.authRequired && !token) {
     next();
