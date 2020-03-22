@@ -45,4 +45,7 @@ export default {
   loginError: 'Die Anmeldedaten sind falsch.',
   settings: 'Einstellungen',
   myAccount: 'Mein Konto',
+  iAm: 'Ich bin',
+  teacher: 'Lehrer',
+  student: 'Schüler',
 };

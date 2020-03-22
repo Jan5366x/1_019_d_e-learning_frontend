@@ -10,13 +10,20 @@
             class="form login-form"
             @submit.prevent="signup"
           >
+            <SelectField
+              v-model="form.role"
+              :label="$t('iAm')"
+              required
+            >
+              <option value="teacher">{{ $t('teacher') }}</option>
+              <option value="student">{{ $t('student') }}</option>
+            </SelectField>
             <TextField
               v-model="form.firstname"
               :label="$t('firstName')"
               required
               :minlength="3"
               :maxlength="50"
-              autofocus
             />
             <TextField
               v-model="form.name"
@@ -85,6 +92,7 @@ export default {
   data() {
     return {
       form: {
+        role: null,
         firstname: null,
         name: null,
         username: null,
@@ -105,6 +113,7 @@ export default {
       this.Authentication.signup(this.form)
         .then(() => {
           this.form = {
+            role: null,
             firstname: null,
             name: null,
             username: null,
