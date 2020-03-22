@@ -74,18 +74,25 @@ const routes = [
         path: 'courses',
         component: () => import(/* webpackChunkName: "TeachersRoom" */ '../ui/views/teacher/courses/Courses.vue'),
         meta: { ...authRequired('teacher') },
-        children: [
-          {
-            path: 'files',
-            component: () => import(/* webpackChunkName: "TeachersRoom" */ '../ui/views/teacher/courses/files/Files.vue'),
-            meta: { ...authRequired('teacher') },
-          },
-          {
-            path: 'stream',
-            component: () => import(/* webpackChunkName: "TeachersRoom" */ '../ui/views/teacher/courses/stream/Stream.vue'),
-            meta: { ...authRequired('teacher') },
-          },
-        ],
+      },
+    ],
+  },
+  // Course ----------------------------------------------------------------------------------------
+  {
+    path: '/course/:id',
+    component: () => import(/* webpackChunkName: "TeachersRoom" */ '../ui/views/course/Course.vue'),
+    redirect: '/course/:id/stream',
+    meta: { ...authRequired('teacher') },
+    children: [
+      {
+        path: 'stream',
+        component: () => (/* webpackChunkName: "TeachersRoom" */ './ui/views/teacher/timetable/TeachRoom.vue'),
+        meta: { ...authRequired('teacher') },
+      },
+      {
+        path: 'files',
+        component: () => (/* webpackChunkName: "TeachersRoom" */ './ui/views/teacher/timetable/TeachRoom.vue'),
+        meta: { ...authRequired('teacher') },
       },
     ],
   },

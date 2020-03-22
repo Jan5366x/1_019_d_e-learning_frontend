@@ -7,18 +7,19 @@
         </Headline2>
       </button>
       <div v-if="isActive">
-        Klasse 8a<br>
-        Klasse 8b<br>
-        Klasse 8c<br>
-        Klasse 8d<br>
+        <CourseLink to="/course/">
+        </CourseLink>
       </div>
     </Card>
   </div>
 </template>
 
 <script>
+import CourseLink from '../course/CourseLink.vue';
+
 export default {
   name: 'TeacherSubjectOverview',
+  components: { CourseLink },
   props: {
     teacher: {
       type: Object,
