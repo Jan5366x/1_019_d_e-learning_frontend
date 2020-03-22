@@ -80,23 +80,23 @@ const routes = [
   // Course ----------------------------------------------------------------------------------------
   {
     path: '/course/:id',
-    component: () => import(/* webpackChunkName: "TeachersRoom" */ '../ui/views/course/Course.vue'),
+    component: () => import(/* webpackChunkName: "Course" */ '../ui/views/course/Course.vue'),
     redirect: '/course/:id/lessons',
     meta: { ...authRequired('all') },
     children: [
       {
         path: 'lessons',
-        component: () => import(/* webpackChunkName: "NotFound" */ '../ui/views/course/lessons/Lessons.vue'),
+        component: () => import(/* webpackChunkName: "Course" */ '../ui/views/course/lessons/Lessons.vue'),
         meta: { ...authRequired('all') },
       },
       {
         path: 'files',
-        component: () => import(/* webpackChunkName: "NotFound" */ '../ui/views/NotFound.vue'),
+        component: () => import(/* webpackChunkName: "Course" */ '../ui/views/course/files/Files.vue'),
         meta: { ...authRequired('all') },
       },
       {
         path: 'students',
-        component: () => import(/* webpackChunkName: "NotFound" */ '../ui/views/NotFound.vue'),
+        component: () => import(/* webpackChunkName: "Course" */ '../ui/views/NotFound.vue'),
         meta: { ...authRequired('all') },
       },
       // {

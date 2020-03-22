@@ -1,5 +1,5 @@
 <template>
-  <span x-component="Icon" class="icon select-none" :class="[`text-${size}`, `cursor-${cursor}`, displayClass]">
+  <span x-component="Icon" class="icon select-none" :class="[textsize, `cursor-${cursor}`, displayClass]">
     {{ renderedIcon }}
   </span>
 </template>
@@ -26,6 +26,18 @@ export default {
   },
 
   computed: {
+    textsize() {
+      if (this.size.indexOf('text') === -1) {
+        return {
+          'text-base': this.size === 'base',
+          'text-lg': this.size === 'lg',
+          'text-xl': this.size === 'xl',
+          'text-2xl': this.size === '2xl',
+          'text-3xl': this.size === '3xl',
+        };
+      }
+      return this.size;
+    },
     renderedIcon() {
       return this.name;
     },
