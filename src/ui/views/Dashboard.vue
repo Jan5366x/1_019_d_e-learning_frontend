@@ -1,8 +1,10 @@
 <template>
   <ViewWrapper>
-    <TeacherDashboard v-if="$route.params.role === 'teacher'">
+    <!-- $route.params.role === 'teacher' -->
+    <TeacherDashboard v-if="false">
     </TeacherDashboard>
-    <StudentDashboard v-if="$route.params.role === 'student'">
+    <!-- $route.params.role === 'student' -->
+    <StudentDashboard v-if="true">
     </StudentDashboard>
   </ViewWrapper>
 </template>

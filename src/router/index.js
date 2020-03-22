@@ -1,8 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-import { ACCESS_TOKEN } from '../config/localStorageVariables';
-
 Vue.use(VueRouter);
 
 const authRequired = (role) => {

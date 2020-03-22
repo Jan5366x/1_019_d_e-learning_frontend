@@ -32,6 +32,7 @@ const Plugin = {
     Vue.component('PasswordSecurity', PasswordSecurity);
     Vue.component('LoadingSpinner', LoadingSpinner);
     Vue.component('Icon', Icon);
+    Vue.component('Card', Icon);
 
     Vue.prototype.$ui.dialog = DialogProgrammatic;
   },

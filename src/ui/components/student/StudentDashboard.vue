@@ -2,12 +2,23 @@
   <section>
     <Headline1>{{ $t('dashboard') }}</Headline1>
     <div class="grid grid-cols-1 md:grid-cols-2">
-      <div>
+      <Card>
         <Headline2>{{ $t('classroom') }}</Headline2>
-      </div>
-      <div>
+        <div class="flex flex-col items-stretch justify-between">
+          <Button class="mt-4">
+            <Icon class="mr-1" name="play_circle_outline"></Icon> {{ $t('teacher_dashboard.links.course') }}
+          </Button>
+          <Button class="mt-4">
+            <Icon class="mr-1" name="chat"></Icon> {{ $t('teacher_dashboard.links.teacher_room') }}
+          </Button>
+          <Button class="mt-4 mb-2">
+            <Icon class="mr-1" name="event"></Icon> {{ $t('teacher_dashboard.links.timetable') }}
+          </Button>
+        </div>
+      </Card>
+      <Card>
         <Headline2>{{ $t('student_dashboard.open_tasks') }}</Headline2>
-      </div>
+      </Card>
     </div>
   </section>
 </template>
@@ -15,10 +26,11 @@
 <script>
 import Headline1 from '../_globals/Typography/Headline1.vue';
 import Headline2 from '../_globals/Typography/Headline2.vue';
+import Card from '../_globals/Card.vue';
 
 export default {
   name: 'StudentDashboard',
-  components: { Headline1, Headline2 },
+  components: { Card, Headline1, Headline2 },
 };
 </script>
 

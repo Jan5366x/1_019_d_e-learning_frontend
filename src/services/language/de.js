@@ -27,6 +27,14 @@ export default {
   teacher_dashboard: {
     title: 'Dashboard',
     teachers_room: 'Lehrerzimmer',
+    links: {
+      course: 'Kurs',
+      teacher_room: 'Lehrerraum',
+      timetable: 'Stundenplan',
+    },
+    notifications: {
+      title: 'Erinnerungen',
+    },
   },
   student_dashboard: {
     open_tasks: 'Offene Aufgaben',
