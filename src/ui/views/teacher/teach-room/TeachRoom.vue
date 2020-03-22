@@ -1,7 +1,5 @@
 <template>
-  <section>
-    sdfadsf ksafj asdfjalsdjöfaöldsj föaklsdjf ölkasdjl jfasdlj falksdjfölkj
-  </section>
+  <section></section>
 </template>
 
 <script>

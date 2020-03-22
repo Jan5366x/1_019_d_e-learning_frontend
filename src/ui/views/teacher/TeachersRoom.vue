@@ -1,7 +1,9 @@
 <template>
   <ViewWrapper>
     <Headline1> {{ $t('teacher_room') }} </Headline1>
-    <router-view></router-view>
+    <div>
+      <router-view></router-view>
+    </div>
   </ViewWrapper>
 </template>
 
