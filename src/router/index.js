@@ -20,15 +20,6 @@ const routes = [
     meta: {
       ...authRequired(),
     },
-    children: [
-      {
-        path: 'login',
-        component: () => import(/* webpackChunkName: "Login" */ '../ui/views/Login.vue'),
-        meta: {
-          ...authRequired(),
-        },
-      },
-    ],
   },
   {
     path: '/login',
@@ -155,9 +146,14 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
   const token = localStorage.getItem(ACCESS_TOKEN);
   const uid = localStorage.getItem(UID);
-  const user = JSON.parse(atob(uid));
-  if (to.meta.authRequired && !token) {
-    next(false);
+  let user = null;
+  if (uid) {
+    user = JSON.parse(atob(uid));
+  }
+  if (!to.meta.authRequired && !token) {
+    next();
+  } else if (to.meta.authRequired && !token) {
+    next({ name: 'Login' });
   } else if (!to.meta.authRequired && token) {
     next(false);
   } else if (to.meta.authRequired && token && (to.meta.role === 'all' || user.role === to.meta.role)) {
