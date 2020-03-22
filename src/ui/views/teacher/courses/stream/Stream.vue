@@ -1,5 +1,7 @@
 <template>
-  <section />
+  <section>
+    Streams
+  </section>
 </template>
 
 <script>
