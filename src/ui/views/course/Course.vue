@@ -19,9 +19,9 @@
       </template>
       <template v-slot:bottom>
         <Tabs>
-          <TabItem :to="`/course/${$route.params.id}/lessons`">Lektionen</TabItem>
-          <TabItem :to="`/course/${$route.params.id}/files`">Dateien</TabItem>
-          <TabItem :to="`/course/${$route.params.id}/students`">Schüler</TabItem>
+          <TabItem icon="view_agenda" :to="`/course/${$route.params.id}/lessons`">Lektionen</TabItem>
+          <TabItem icon="folder" :to="`/course/${$route.params.id}/files`">Dateien</TabItem>
+          <TabItem icon="group" :to="`/course/${$route.params.id}/students`">Schüler</TabItem>
         </Tabs>
       </template>
     </HeadWrapper>
