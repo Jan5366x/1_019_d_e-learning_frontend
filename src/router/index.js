@@ -48,7 +48,7 @@ const routes = [
     meta: { ...authRequired('teacher') },
     children: [
       {
-        path: '/timetable',
+        path: 'timetable',
         component: () => import(/* webpackChunkName: "DashboardTeacher" */ '../ui/views/teacher/timetable/Timetable.vue'),
         meta: { ...authRequired('teacher') },
       },
@@ -58,7 +58,7 @@ const routes = [
         meta: { ...authRequired('teacher') },
       },
       {
-        path: '/courses',
+        path: 'courses',
         component: () => import(/* webpackChunkName: "DashboardTeacher" */ '../ui/views/teacher/courses/Courses.vue'),
         meta: { ...authRequired('teacher') },
         children: [
