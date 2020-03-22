@@ -1,6 +1,6 @@
 <template>
   <section>
-    <slot></slot>
+    <slot />
   </section>
 </template>
 
@@ -9,7 +9,3 @@ export default {
   name: 'Tabs',
 };
 </script>
-
-<style scoped>
-
-</style>
