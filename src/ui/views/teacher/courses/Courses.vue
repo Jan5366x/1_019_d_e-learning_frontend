@@ -1,5 +1,5 @@
 <template>
-  <section class="p-4">
+  <section>
     <router-view />
 
     <div class="grid grid-cols-1 grid-cols-1 md:grid-cols-2 md:grid-cols-3 gap-4">

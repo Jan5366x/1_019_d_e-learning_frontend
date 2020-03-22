@@ -1,7 +1,7 @@
 <template>
   <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
     <TeacherSubjectOverview
-      v-for="subject of Subjects.subjects"
+      v-for="subject of subjects"
       :key="subject"
       :teacher="teacher"
       :subject="subject"
@@ -11,11 +11,10 @@
 
 <script>
 import TeacherSubjectOverview from '../teacher/TeacherSubjectOverview.vue';
-import Subjects from '../../../models/course/subject/Subjects';
+import subjects from '../../../services/api/_mock/subjects';
 
 export default {
   name: 'TeacherCourses',
-  models: { Subjects },
 
   components: { TeacherSubjectOverview },
 
@@ -25,9 +24,11 @@ export default {
       required: true,
     },
   },
+
+  data() {
+    return {
+      subjects,
+    };
+  },
 };
 </script>
-
-<style scoped>
-
-</style>
