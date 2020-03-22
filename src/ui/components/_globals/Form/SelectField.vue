@@ -40,10 +40,10 @@
         </option>
         <slot />
       </select>
-      <!-- <Icon
-        name="chevron.down"
-        class="absolute text-gray-600 block right-0 mr-2 select-none"
-      /> -->
+      <Icon
+        name="unfold_more"
+        class="absolute text-gray-600 block right-0 mr-2 select-none z-2"
+      />
     </div>
     <span
       class="text-sm px-2 text-red-500 duration-150 transition-all ease-in-out overflow-hidden block select-none"

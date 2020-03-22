@@ -58,6 +58,7 @@
               theme="primary"
               class="w-full"
               type="submit"
+              :loading="loading"
               :disabled="passwordSecurity <= 1"
             >
               {{ $t('signUp') }}
@@ -92,11 +93,13 @@ export default {
 
       emailInUse: false,
       userNameInUse: false,
+      loading: false,
     };
   },
 
   methods: {
     signup() {
+      this.loading = true;
       this.Authentication.signup(this.form)
         .then(() => {
           this.form = {
@@ -110,9 +113,11 @@ export default {
 
           this.emailInUse = false;
           this.userNameInUse = false;
+          this.loading = false;
         })
         .catch((err) => {
           const error = err.response.data;
+          this.loading = false;
           if (error.message === 'EMAIL_ALREADY_REGISTERED') {
             this.emailInUse = true;
           } else if (error.message === 'USERNAME_ALREADY_REGISTERED') {

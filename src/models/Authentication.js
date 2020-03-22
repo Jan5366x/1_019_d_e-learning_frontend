@@ -42,8 +42,9 @@ export default {
         }).then((resp) => {
           this.token = resp.data.token;
           this.user = resp.data.user;
+          this.user.role = 'student';
           localStorage.setItem(ACCESS_TOKEN, this.token);
-          localStorage.setItem(UID, btoa(this.user));
+          localStorage.setItem(UID, btoa(JSON.stringify(this.user)));
           this.$router.push('/home');
           res(resp.data);
           // Todo: implement get user data => backend
@@ -85,10 +86,11 @@ export default {
     reAuthenticate() {
       // TODO: Check token expiring time
       const token = localStorage.getItem(ACCESS_TOKEN);
-      const uid = atob(localStorage.getItem(UID));
+      const uid = localStorage.getItem(UID);
+      const user = JSON.parse(atob(uid));
       if (token) {
         this.token = token;
-        this.user = uid;
+        this.user = user;
         // Todo: implement get user data => backend
         // this.getUserData(uid);
       } else if (this.$route.meta.authRequired) {

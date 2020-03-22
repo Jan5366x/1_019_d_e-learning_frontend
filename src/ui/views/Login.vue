@@ -28,7 +28,12 @@
             <div class="mb-4 text-sm">
               <router-link to="/password-forgotten">{{ $t('forgotPassword') }}</router-link>
             </div>
-            <Button theme="primary" class="w-full" type="submit">
+            <Button
+              theme="primary"
+              class="w-full"
+              type="submit"
+              :loading="loading"
+            >
               {{ $t('login') }}
             </Button>
             <div class="flex my-4 items-center">
@@ -54,15 +59,21 @@ export default {
       password: null,
 
       loginError: false,
+      loading: false,
     };
   },
 
   methods: {
     login() {
+      this.loading = true;
       this.Authentication.login(this.email, this.password)
+        .then(() => {
+          this.loading = false;
+        })
         .catch(() => {
           this.loginError = true;
           this.password = null;
+          this.loading = false;
         });
     },
   },
