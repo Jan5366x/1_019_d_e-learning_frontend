@@ -5,7 +5,7 @@
   >
     <a
       :href="href"
-      class="flex items-center px-4 py-2 leading-relaxed text-center border-b-2 hover:bg-gray-300
+      class="flex items-center px-3 md:px-4 py-2 leading-relaxed text-center border-b-2 hover:bg-gray-300
       focus:outline-none transition duration-150 rounded-t-lg font-medium"
       :class="{
         'text-blue-500 border-blue-500 bg-gray-200': isExactActive,
@@ -16,7 +16,7 @@
       <Icon
         v-if="icon"
         :name="icon"
-        size="xl"
+        size="text-base md:text-xl"
         class="mr-2 transition duration-150"
         :class="{
           'text-gray-600': !isExactActive,
