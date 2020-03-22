@@ -8,7 +8,7 @@ export default {
       user: {
         firstname: 'Vorname',
         name: 'Nachname',
-        role: 'student',
+        role: 'teacher',
       },
     };
   },
