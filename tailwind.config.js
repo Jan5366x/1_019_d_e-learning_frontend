@@ -19,6 +19,9 @@ module.exports = {
         xxl: '1440px',
         xxxl: '1920px',
       },
+      minWidth: {
+        25: '6.25rem',
+      },
       maxWidth: {
         80: '20rem',
       },

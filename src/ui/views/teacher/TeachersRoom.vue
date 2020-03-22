@@ -1,15 +1,24 @@
 <template>
-  <ViewWrapper>
-    <Headline1> {{ $t('teacher_room') }} </Headline1>
-    <router-view />
-  </ViewWrapper>
+  <section>
+    <HeadWrapper>
+      <Headline1>{{ $t('teachers_room') }}</Headline1>
+
+      <template v-slot:bottom>
+        <Tabs>
+          <TabItem to="timetable">{{ $t('timetable') }}</TabItem>
+          <TabItem to="teach_room">{{ $t('teacher_room') }}</TabItem>
+          <TabItem to="courses">{{ $tc('course', 2) }}</TabItem>
+        </Tabs>
+      </template>
+    </HeadWrapper>
+    <ViewWrapper>
+      <router-view />
+    </ViewWrapper>
+  </section>
 </template>
 
 <script>
-import Headline1 from '../../components/_globals/Typography/Headline1.vue';
-
 export default {
   name: 'TeachersRoom',
-  components: { Headline1 },
 };
 </script>

@@ -37,10 +37,10 @@ export default {
         });
       });
     },
-    signup({ email, password, username, firstname, name }) {
+    signup({ email, password, username, firstname, name, role }) {
       return new Promise((res, rej) => {
         authentication.signup({
-          email, password, username, firstname, name,
+          email, password, username, firstname, name, role,
         }).then(() => {
           res();
           this.$ui.dialog.alert({

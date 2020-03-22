@@ -1,27 +1,29 @@
 <template>
   <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-    <TeacherSubjectOverview v-for="subject of data().subjects" :teacher="teacher" :subject="subject">
-    </TeacherSubjectOverview>
+    <TeacherSubjectOverview
+      v-for="subject of Subjects.subjects"
+      :key="subject"
+      :teacher="teacher"
+      :subject="subject"
+    />
   </section>
 </template>
 
 <script>
 import TeacherSubjectOverview from '../teacher/TeacherSubjectOverview.vue';
-import { subjects } from '../../../models/course/subject/Subjects';
+import Subjects from '../../../models/course/subject/Subjects';
 
 export default {
   name: 'TeacherCourses',
+  models: { Subjects },
+
   components: { TeacherSubjectOverview },
+
   props: {
     teacher: {
       type: Object,
       required: true,
     },
-  },
-  data: () => {
-    return {
-      subject: subjects,
-    };
   },
 };
 </script>

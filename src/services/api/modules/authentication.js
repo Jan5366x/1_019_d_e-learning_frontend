@@ -16,6 +16,7 @@ export default {
     username,
     name,
     firstname,
+    role,
   }) {
     return api.POST('user/signup', {
       email,
@@ -23,6 +24,7 @@ export default {
       username,
       name,
       firstname,
+      role,
     });
   },
 };
