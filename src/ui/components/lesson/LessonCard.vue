@@ -1,17 +1,22 @@
 <template>
-  <button
-    class="w-full text-left shadow-sm px-3 py-2 rounded-lg focus:outline-none mb-3
+  <router-link
+    :to="to"
+    class="block w-full text-left shadow-sm px-3 py-2 rounded-lg focus:outline-none mb-3
     hover:shadow transition duration-150"
     :class="classes"
   >
     <div class="text-medium font-semibold"><slot /></div>
     <div class="text-sm leading-tight" :class="labelClasses"><slot name="course" /></div>
-  </button>
+  </router-link>
 </template>
 
 <script>
 export default {
   props: {
+    to: {
+      type: String,
+      required: true,
+    },
     color: {
       type: String,
       default: 'white',

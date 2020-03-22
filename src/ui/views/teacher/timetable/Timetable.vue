@@ -34,19 +34,19 @@
             {{ $moment(selectedWeek.start).format($t('dateFormat')) }}
           </div>
         </template>
-        <LessonCard color="purple">
+        <LessonCard to="/course/73482892174ssasd23" color="purple">
           Integralrechnung 1
           <template v-slot:course>Mathe LK 12</template>
         </LessonCard>
-        <LessonCard color="blue">
+        <LessonCard to="/course/73482892174ssasd23" color="blue">
           Edelmetalle 1
           <template v-slot:course>Chemie 8b</template>
         </LessonCard>
-        <LessonCard color="blue">
+        <LessonCard to="/course/73482892174ssasd23" color="blue">
           Edelmetalle 2
           <template v-slot:course>Chemie 8b</template>
         </LessonCard>
-        <LessonCard color="orange">
+        <LessonCard to="/course/73482892174ssasd23" color="orange">
           Dreisatz 1
           <template v-slot:course>Mathe 5a</template>
         </LessonCard>
@@ -58,11 +58,11 @@
             {{ $moment(selectedWeek.start).add(1, 'd').format($t('dateFormat')) }}
           </div>
         </template>
-        <LessonCard color="orange">
+        <LessonCard to="/course/73482892174ssasd23" color="orange">
           Lineare Gleichungen 1
           <template v-slot:course>Mathe 10d</template>
         </LessonCard>
-        <LessonCard color="orange">
+        <LessonCard to="/course/73482892174ssasd23" color="orange">
           Binomische Formeln 1
           <template v-slot:course>Mathe 8b</template>
         </LessonCard>
@@ -74,19 +74,19 @@
             {{ $moment(selectedWeek.start).add(2, 'd').format($t('dateFormat')) }}
           </div>
         </template>
-        <LessonCard color="green">
+        <LessonCard to="/course/73482892174ssasd23" color="green">
           Kunststoffe
           <template v-slot:course>Chemie LK 12</template>
         </LessonCard>
-        <LessonCard color="green">
+        <LessonCard to="/course/73482892174ssasd23" color="green">
           Ethanol
           <template v-slot:course>Chemie GK 11</template>
         </LessonCard>
-        <LessonCard color="purple">
+        <LessonCard to="/course/73482892174ssasd23" color="purple">
           Integralrechnung 2
           <template v-slot:course>Mathe LK 12</template>
         </LessonCard>
-        <LessonCard color="purple">
+        <LessonCard to="/course/73482892174ssasd23" color="purple">
           Integralrechnung 3
           <template v-slot:course>Mathe LK 12</template>
         </LessonCard>
@@ -98,15 +98,15 @@
             {{ $moment(selectedWeek.start).add(3, 'd').format($t('dateFormat')) }}
           </div>
         </template>
-        <LessonCard color="purple">
+        <LessonCard to="/course/73482892174ssasd23" color="purple">
           Stochastik 1
           <template v-slot:course>Mathe GK 11</template>
         </LessonCard>
-        <LessonCard color="orange">
+        <LessonCard to="/course/73482892174ssasd23" color="orange">
           Binomische Formeln 2
           <template v-slot:course>Mathe 8b</template>
         </LessonCard>
-        <LessonCard color="orange">
+        <LessonCard to="/course/73482892174ssasd23" color="orange">
           Binomische Formeln 3
           <template v-slot:course>Mathe 8b</template>
         </LessonCard>
@@ -118,19 +118,19 @@
             {{ $moment(selectedWeek.start).add(4, 'd').format($t('dateFormat')) }}
           </div>
         </template>
-        <LessonCard color="purple">
+        <LessonCard to="/course/73482892174ssasd23" color="purple">
           Stochastik 2
           <template v-slot:course>Mathe GK 11</template>
         </LessonCard>
-        <LessonCard color="green">
+        <LessonCard to="/course/73482892174ssasd23" color="green">
           Erdöl 1
           <template v-slot:course>Chemie LK 12</template>
         </LessonCard>
-        <LessonCard color="green">
+        <LessonCard to="/course/73482892174ssasd23" color="green">
           Erdöl 2
           <template v-slot:course>Chemie LK 12</template>
         </LessonCard>
-        <LessonCard color="purple">
+        <LessonCard to="/course/73482892174ssasd23" color="purple">
           Integralrechnung 4
           <template v-slot:course>Mathe LK 12</template>
         </LessonCard>

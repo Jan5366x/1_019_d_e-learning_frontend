@@ -81,18 +81,51 @@ const routes = [
   {
     path: '/course/:id',
     component: () => import(/* webpackChunkName: "TeachersRoom" */ '../ui/views/course/Course.vue'),
-    redirect: '/course/:id/stream',
-    meta: { ...authRequired('teacher') },
+    // redirect: '/course/:id',
+    meta: { ...authRequired('all') },
+    children: [
+      {
+        path: 'lessons',
+        component: () => import(/* webpackChunkName: "NotFound" */ '../ui/views/course/lessons/Lessons.vue'),
+        meta: { ...authRequired('all') },
+      },
+      {
+        path: 'files',
+        component: () => import(/* webpackChunkName: "NotFound" */ '../ui/views/NotFound.vue'),
+        meta: { ...authRequired('all') },
+      },
+      {
+        path: 'students',
+        component: () => import(/* webpackChunkName: "NotFound" */ '../ui/views/NotFound.vue'),
+        meta: { ...authRequired('all') },
+      },
+      // {
+      //   path: 'stream',
+      //   component: () => (/* webpackChunkName: "TeachersRoom" */ '../ui/views/teacher/timetable/TeachRoom.vue'),
+      //   meta: { ...authRequired('all') },
+      // },
+      // {
+      //   path: 'files',
+      //   component: () => (/* webpackChunkName: "TeachersRoom" */ '../ui/views/teacher/timetable/TeachRoom.vue'),
+      //   meta: { ...authRequired('all') },
+      // },
+    ],
+  },
+  {
+    path: '/lesson/:id',
+    component: () => import(/* webpackChunkName: "TeachersRoom" */ '../ui/views/course/Course.vue'),
+    // redirect: '/course/:id/stream',
+    meta: { ...authRequired('all') },
     children: [
       {
         path: 'stream',
         component: () => (/* webpackChunkName: "TeachersRoom" */ './ui/views/teacher/timetable/TeachRoom.vue'),
-        meta: { ...authRequired('teacher') },
+        meta: { ...authRequired('all') },
       },
       {
         path: 'files',
         component: () => (/* webpackChunkName: "TeachersRoom" */ './ui/views/teacher/timetable/TeachRoom.vue'),
-        meta: { ...authRequired('teacher') },
+        meta: { ...authRequired('all') },
       },
     ],
   },
