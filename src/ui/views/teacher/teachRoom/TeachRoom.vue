@@ -1,9 +1,10 @@
 <template>
-  <section></section>
+  <section>
+    teach-room
+  </section>
 </template>
 
 <script>
-
 export default {
   name: 'TeachRoom',
 };

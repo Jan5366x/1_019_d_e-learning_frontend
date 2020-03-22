@@ -6,6 +6,7 @@ export default {
     return {
       token: null,
       user: null,
+      requestedRoute: null,
     };
   },
 
@@ -13,26 +14,19 @@ export default {
     this.reAuthenticate();
   },
 
-  watch: {
-    $route: {
-      immediate: true,
-      handler(to, from) {
-        // if (
-        //   (to.meta.authRequired && this.token)
-        //   && (to.meta.role !== 'all' && to.meta.role !== this.user.role)
-        // ) {
-        //   this.$router.push(from?.path || '/home');
-        // } else if (!to.meta.authRequired && this.token) {
-        //   this.$router.push('/home');
-        // } else if (to.meta.authRequired && !this.token) {
-        //   this.$router.push('/login');
-        // } else {
-        //   // Go To Route
-        //   this.$router.push(to.path);
-        // }
-      },
-    },
-  },
+  // watch: {
+  //   $route: {
+  //     immediate: true,
+  //     handler(to, from) {
+  //       if (this.user && (to.meta.role === this.user.role)) {
+  //         // go
+  //       } else if (this.user) {
+  //         console.log('not same');
+  //         this.$router.push(`/dashboard_${this.user.role}`);
+  //       }
+  //     },
+  //   },
+  // },
 
   methods: {
     login(email, password) {
@@ -43,7 +37,7 @@ export default {
         }).then((resp) => {
           this.token = resp.data.token;
           this.user = resp.data.user;
-          this.user.role = 'student';
+          this.user.role = 'teacher';
           localStorage.setItem(ACCESS_TOKEN, this.token);
           localStorage.setItem(UID, btoa(JSON.stringify(this.user)));
           this.$router.push('/home');
