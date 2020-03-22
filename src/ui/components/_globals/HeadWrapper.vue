@@ -1,7 +1,7 @@
 <template>
   <div class="bg-white shadow">
     <div
-      class="container-default mx-auto px-2 sm:px-6 pt-6"
+      class="container-default mx-auto px-4 sm:px-6 xxl:px-8 pt-6"
       :class="{
         'pb-6': !$slots.bottom,
       }"

@@ -1,6 +1,6 @@
 <template>
   <nav class="fixed top-0 left-0 w-full bg-gray-800 shadow z-20">
-    <div class="container-default mx-auto px-2 sm:px-6">
+    <div class="container-default mx-auto px-2 sm:px-6 xxl:px-8 relative z-10">
       <div class="relative flex items-center justify-between h-16">
         <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
           <button
@@ -67,11 +67,17 @@
         </div>
       </div>
     </div>
-    <div :class="{'block': open, 'hidden': !open}" class="sm:hidden">
+    <div :class="{'block': open, 'hidden': !open}" class="relative sm:hidden z-10">
       <div class="px-2 pt-2 pb-3">
         <slot />
       </div>
     </div>
+    <div
+      class="sm:hidden absolute top-0 left-0 w-full h-screen bg-black opacity-25 z-2
+      transition duration-150"
+      :class="{'visible': open, 'invisible opacity-0': !open}"
+      @click="open = false"
+    />
   </nav>
 </template>
 
