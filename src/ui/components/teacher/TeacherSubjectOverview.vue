@@ -1,7 +1,19 @@
 <template>
-  <Card>
-    {{ subject }}
-  </Card>
+  <div>
+    <Card class="teacher-subject-overview-card">
+      <button class="w-full" @click="toggleClasses()">
+        <Headline2 class="flex justify-between items-center cursor-pointer">
+          {{ subject }} <Icon class="relative chevron_icon transform transition-transform" :class="{'transform rotate-90 transition duration-200 ease-in-out': isActive }" name="chevron_right"></Icon>
+        </Headline2>
+      </button>
+      <div v-if="isActive">
+        Klasse 8a<br>
+        Klasse 8b<br>
+        Klasse 8c<br>
+        Klasse 8d<br>
+      </div>
+    </Card>
+  </div>
 </template>
 
 <script>
@@ -17,5 +29,20 @@ export default {
       required: true,
     },
   },
+  data: () => {
+    return {
+      isActive: false,
+    };
+  },
+  methods: {
+    toggleClasses() {
+      this.isActive = !this.isActive;
+    },
+  },
 };
 </script>
+<style>
+  button {
+    outline: none !important;
+  }
+</style>
