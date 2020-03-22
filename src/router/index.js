@@ -40,45 +40,39 @@ const routes = [
     name: 'Dashboard Teacher',
     component: () => import(/* webpackChunkName: "DashboardTeacher" */ '../ui/views/Dashboard.vue'),
     meta: { ...authRequired('teacher') },
+  },
+  {
+    path: '/teachers_room',
+    name: 'Teachers Room',
+    component: () => import(/* webpackChunkName: "DashboardTeacher" */ '../ui/views/teacher/TeachersRoom.vue'),
+    meta: { ...authRequired('teacher') },
     children: [
       {
-        path: 'teachers_room',
-        component: () => import(/* webpackChunkName: "DashboardTeacher" */ '../ui/views/teacher/TeachersRoom.vue'),
+        path: '/timetable',
+        component: () => import(/* webpackChunkName: "DashboardTeacher" */ '../ui/views/teacher/timetable/Timetable.vue'),
+        meta: { ...authRequired('teacher') },
+      },
+      {
+        path: 'teach_room',
+        component: () => () => import(/* webpackChunkName: "DashboardTeacher" */ '../ui/views/teacher/teach-room/TeachRoom.vue'),
+        meta: { ...authRequired('teacher') },
+      },
+      {
+        path: '/courses/:id',
+        component: () => import(/* webpackChunkName: "DashboardTeacher" */ '../ui/views/teacher/courses/Courses.vue'),
         meta: { ...authRequired('teacher') },
         children: [
           {
-            path: 'timetable',
-            component: () => import(/* webpackChunkName: "DashboardTeacher" */ '../ui/views/teacher/timetable/Timetable.vue'),
+            path: 'files',
+            component: () => import(/* webpackChunkName: "DashboardTeacher" */ '../ui/views/teacher/courses/files/Files.vue'),
             meta: { ...authRequired('teacher') },
           },
           {
-            path: 'teach_room',
-            component: () => import(/* webpackChunkName: "DashboardTeacher" */ '../ui/views/teacher/teach-room/TeachRoom.vue'),
+            path: 'stream',
+            component: () => import(/* webpackChunkName: "DashboardTeacher" */ '../ui/views/teacher/courses/stream/Stream.vue'),
             meta: { ...authRequired('teacher') },
-          },
-          {
-            path: 'courses/:id',
-            component: () => import(/* webpackChunkName: "DashboardTeacher" */ '../ui/views/teacher/courses/Courses.vue'),
-            meta: { ...authRequired('teacher') },
-            children: [
-              {
-                path: 'files',
-                component: () => import(/* webpackChunkName: "DashboardTeacher" */ '../ui/views/teacher/courses/files/Files.vue'),
-                meta: { ...authRequired('teacher') },
-              },
-              {
-                path: 'stream',
-                component: () => import(/* webpackChunkName: "DashboardTeacher" */ '../ui/views/teacher/courses/stream/Stream.vue'),
-                meta: { ...authRequired('teacher') },
-              },
-            ],
           },
         ],
-      },
-      {
-        path: 'students_room',
-        component: () => import(/* webpackChunkName: "DashboardTeacher" */ '../ui/views/teacher/StudentsRoom.vue'),
-        meta: { ...authRequired('teacher') },
       },
     ],
   },

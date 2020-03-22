@@ -1,13 +1,12 @@
 <template>
   <section>
-    <slot></slot>
-    <router-view></router-view>
   </section>
 </template>
 
 <script>
+
 export default {
-  name: 'Tabs',
+  name: 'TabContent',
 };
 </script>
 

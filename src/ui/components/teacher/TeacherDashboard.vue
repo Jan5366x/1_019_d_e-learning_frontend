@@ -6,13 +6,13 @@
         <Headline2>{{ $t('teacher_dashboard.teachers_room') }}</Headline2>
         <div class="flex flex-col items-stretch justify-between">
           <Button class="mt-4">
-            <Icon class="mr-1" name="play_circle_outline"></Icon> {{ $t('teacher_dashboard.links.course') }}
+            <Icon class="mr-1" name="play_circle_outline"></Icon> {{ $t('course') }}
           </Button>
           <Button class="mt-4">
-            <Icon class="mr-1" name="chat"></Icon> {{ $t('teacher_dashboard.links.teacher_room') }}
+            <Icon class="mr-1" name="chat"></Icon> {{ $t('teacher_room') }}
           </Button>
           <Button class="mt-4 mb-2">
-            <Icon class="mr-1" name="event"></Icon> {{ $t('teacher_dashboard.links.timetable') }}
+            <Icon class="mr-1" name="event"></Icon> {{ $t('timetable') }}
           </Button>
         </div>
       </Card>

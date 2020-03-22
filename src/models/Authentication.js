@@ -17,18 +17,19 @@ export default {
     $route: {
       immediate: true,
       handler(to, from) {
-        if (
-          (to.meta.authRequired && this.token)
-          && (to.meta.role !== 'all' && to.meta.role !== this.user.role)
-        ) {
-          this.$router.push(from?.path || '/home');
-        } else if (!to.meta.authRequired && this.token) {
-          this.$router.push('/home');
-        } else if (to.meta.authRequired && !this.token) {
-          this.$router.push('/login');
-        } else {
-          // Go To Route
-        }
+        // if (
+        //   (to.meta.authRequired && this.token)
+        //   && (to.meta.role !== 'all' && to.meta.role !== this.user.role)
+        // ) {
+        //   this.$router.push(from?.path || '/home');
+        // } else if (!to.meta.authRequired && this.token) {
+        //   this.$router.push('/home');
+        // } else if (to.meta.authRequired && !this.token) {
+        //   this.$router.push('/login');
+        // } else {
+        //   // Go To Route
+        //   this.$router.push(to.path);
+        // }
       },
     },
   },

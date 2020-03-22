@@ -1,14 +1,12 @@
 <template>
   <section>
-    <Headline1>Lehrerzimmer</Headline1>
+    sdfadsf ksafj asdfjalsdjöfaöldsj föaklsdjf ölkasdjl jfasdlj falksdjfölkj
   </section>
 </template>
 
 <script>
-import Headline1 from '../../../components/_globals/Typography/Headline1.vue';
 
 export default {
   name: 'TeachRoom',
-  components: { Headline1 },
 };
 </script>
