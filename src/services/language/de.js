@@ -26,7 +26,9 @@ export default {
   teacher_room: 'Lehrerraum',
   timetable: 'Stundenplan',
   course: 'Kurs',
+  courses: 'Kurse',
   dashboard: 'Dashboard',
+  reminder: 'Erinnerungen',
   teacher_dashboard: {
     title: 'Dashboard',
     teachers_room: 'Lehrerzimmer',

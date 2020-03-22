@@ -8,11 +8,11 @@
       @logout="Authentication.logout"
     >
       <template v-if="Authentication.user && Authentication.user.role === 'teacher'">
-        <NavbarItem to="/">Home</NavbarItem>
-        <NavbarItem to="/courses">Kurse</NavbarItem>
+        <NavbarItem to="/dashboard_teacher">Home</NavbarItem>
+        <NavbarItem to="/teachers_room">Lehrerzimmer</NavbarItem>
       </template>
       <template v-else-if="Authentication.user && Authentication.user.role === 'student'">
-        <NavbarItem to="/">Home</NavbarItem>
+        <NavbarItem to="/home">Home</NavbarItem>
         <NavbarItem to="/courses">Kurse</NavbarItem>
       </template>
     </Navbar>

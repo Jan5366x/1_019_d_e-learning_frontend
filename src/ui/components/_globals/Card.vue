@@ -1,6 +1,6 @@
 <template>
-  <section class="m-4 rounded overflow-hidden shadow-lg px-6 py-4">
-    <slot></slot>
+  <section class="rounded overflow-hidden shadow-lg rounded-lg px-6 py-4 bg-white">
+    <slot />
   </section>
 </template>
 
@@ -9,7 +9,3 @@ export default {
   name: 'Card',
 };
 </script>
-
-<style scoped>
-
-</style>

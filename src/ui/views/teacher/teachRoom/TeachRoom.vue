@@ -1,11 +1,10 @@
 <template>
   <section>
-    sdfadsf ksafj asdfjalsdjöfaöldsj föaklsdjf ölkasdjl jfasdlj falksdjfölkj
+    teach-room
   </section>
 </template>
 
 <script>
-
 export default {
   name: 'TeachRoom',
 };

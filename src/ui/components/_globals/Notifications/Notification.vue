@@ -1,12 +1,10 @@
 <template>
-  <section>
-    <slot></slot>
-  </section>
+  <section />
 </template>
 
 <script>
 export default {
-  name: 'Tabs',
+  name: 'Notification',
 };
 </script>
 

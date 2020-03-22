@@ -1,5 +1,9 @@
 <template>
-  <section />
+  <section>
+    courses
+
+    <router-view />
+  </section>
 </template>
 
 <script>

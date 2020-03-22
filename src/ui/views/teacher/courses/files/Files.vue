@@ -1,5 +1,7 @@
 <template>
-  <section />
+  <section>
+    files
+  </section>
 </template>
 
 <script>

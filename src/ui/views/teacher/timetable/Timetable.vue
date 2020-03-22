@@ -1,5 +1,7 @@
 <template>
-  <section />
+  <section>
+    timetable
+  </section>
 </template>
 
 <script>

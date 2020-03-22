@@ -23,6 +23,7 @@
               v-model="password"
               :label="$t('password')"
               required
+              :minlength="6"
               type="password"
             />
             <div class="mb-4 text-sm">
@@ -70,7 +71,7 @@ export default {
         .then(() => {
           this.loading = false;
         })
-        .catch(() => {
+        .catch((err) => {
           this.loginError = true;
           this.password = null;
           this.loading = false;

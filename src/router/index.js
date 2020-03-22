@@ -1,6 +1,8 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
+import { ACCESS_TOKEN, UID } from '../config/localStorageVariables';
+
 Vue.use(VueRouter);
 
 const authRequired = (role) => {
@@ -18,6 +20,15 @@ const routes = [
     meta: {
       ...authRequired(),
     },
+    children: [
+      {
+        path: 'login',
+        component: () => import(/* webpackChunkName: "Login" */ '../ui/views/Login.vue'),
+        meta: {
+          ...authRequired(),
+        },
+      },
+    ],
   },
   {
     path: '/login',
@@ -37,39 +48,49 @@ const routes = [
   // Teacher ---------------------------------------------------------------------------------------
   {
     path: '/dashboard_teacher',
-    name: 'Dashboard Teacher',
+    name: 'DashboardTeacher',
     component: () => import(/* webpackChunkName: "DashboardTeacher" */ '../ui/views/Dashboard.vue'),
     meta: { ...authRequired('teacher') },
   },
   {
+    path: '/courses',
+    component: () => import(/* webpackChunkName: "DashboardTeacher" */ '../ui/views/teacher/courses/Courses.vue'),
+    meta: { ...authRequired('teacher') },
+  },
+  {
     path: '/teachers_room',
-    name: 'Teachers Room',
-    component: () => import(/* webpackChunkName: "DashboardTeacher" */ '../ui/views/teacher/TeachersRoom.vue'),
+    name: 'TeachersRoom',
+    component: () => import(/* webpackChunkName: "TeachersRoom" */ '../ui/views/teacher/TeachersRoom.vue'),
     meta: { ...authRequired('teacher') },
     children: [
       {
-        path: '/timetable',
-        component: () => import(/* webpackChunkName: "DashboardTeacher" */ '../ui/views/teacher/timetable/Timetable.vue'),
-        meta: { ...authRequired('teacher') },
-      },
-      {
         path: 'teach_room',
-        component: () => () => import(/* webpackChunkName: "DashboardTeacher" */ '../ui/views/teacher/teach-room/TeachRoom.vue'),
+        component: () => import(/* webpackChunkName: "TeachersRoom" */ '../ui/views/teacher/teachRoom/TeachRoom.vue'),
         meta: { ...authRequired('teacher') },
       },
       {
-        path: '/courses/:id',
-        component: () => import(/* webpackChunkName: "DashboardTeacher" */ '../ui/views/teacher/courses/Courses.vue'),
+        path: 'timetable',
+        component: () => import(/* webpackChunkName: "TeachersRoom" */ '../ui/views/teacher/timetable/Timetable.vue'),
+        meta: { ...authRequired('teacher') },
+      },
+      {
+        path: 'teachroom',
+        component: () => (/* webpackChunkName: "TeachersRoom" */ './ui/views/teacher/timetable/TeachRoom.vue'),
+        meta: { ...authRequired('teacher') },
+      },
+      {
+        path: 'courses',
+        component: () => import(/* webpackChunkName: "TeachersRoom" */ '../ui/views/teacher/courses/Courses.vue'),
         meta: { ...authRequired('teacher') },
         children: [
           {
             path: 'files',
-            component: () => import(/* webpackChunkName: "DashboardTeacher" */ '../ui/views/teacher/courses/files/Files.vue'),
+            component: () => import(/* webpackChunkName: "TeachersRoom" */ '../ui/views/teacher/courses/files/Files.vue'),
             meta: { ...authRequired('teacher') },
           },
           {
             path: 'stream',
-            component: () => import(/* webpackChunkName: "DashboardTeacher" */ '../ui/views/teacher/courses/stream/Stream.vue'),
+            component: () => import(/* webpackChunkName: "TeachersRoom" */ '../ui/views/teacher/courses/stream/Stream.vue'),
             meta: { ...authRequired('teacher') },
           },
         ],
@@ -79,7 +100,7 @@ const routes = [
   // Student ---------------------------------------------------------------------------------------
   {
     path: '/dashboard_student',
-    name: 'Dashboard Student',
+    name: 'DashboardStudent',
     component: () => import(/* webpackChunkName: "DashboardStudent" */ '../ui/views/Dashboard.vue'),
     meta: { ...authRequired('student') },
     children: [
@@ -129,6 +150,22 @@ const routes = [
 
 const router = new VueRouter({
   routes,
+});
+
+router.beforeEach((to, from, next) => {
+  const token = localStorage.getItem(ACCESS_TOKEN);
+  const uid = localStorage.getItem(UID);
+  const user = JSON.parse(atob(uid));
+  if (to.meta.authRequired && !token) {
+    next(false);
+  } else if (!to.meta.authRequired && token) {
+    next(false);
+  } else if (to.meta.authRequired && token && (to.meta.role === 'all' || user.role === to.meta.role)) {
+    next();
+  } else if (to.meta.authRequired && token && user.role !== to.meta.role) {
+    if (user.role === 'teacher') next({ name: 'DashboardTeacher' });
+    else if (user.role === 'student') next({ name: 'DashboardStudent' });
+  }
 });
 
 export default router;

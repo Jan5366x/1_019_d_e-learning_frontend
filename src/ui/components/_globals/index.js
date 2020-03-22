@@ -12,6 +12,9 @@ import NavbarItem from './Navigation/Navbar/Item.vue';
 import Dropdown from './Dropdown.vue';
 import DropdownItem from './DropdownItem.vue';
 import Icon from './Icon.vue';
+import Card from './Card.vue';
+import Headline1 from './Typography/Headline1.vue';
+import Headline2 from './Typography/Headline2.vue';
 import { DialogProgrammatic, Dialog } from './Dialog/dialog';
 
 const Plugin = {
@@ -32,7 +35,9 @@ const Plugin = {
     Vue.component('PasswordSecurity', PasswordSecurity);
     Vue.component('LoadingSpinner', LoadingSpinner);
     Vue.component('Icon', Icon);
-    Vue.component('Card', Icon);
+    Vue.component('Card', Card);
+    Vue.component('Headline1', Headline1);
+    Vue.component('Headline2', Headline2);
 
     Vue.prototype.$ui.dialog = DialogProgrammatic;
   },

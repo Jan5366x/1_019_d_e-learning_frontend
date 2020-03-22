@@ -39,6 +39,7 @@
               :label="$t('email')"
               :custom-error="emailInUse ? true : false"
               :custom-error-msg="$t('emailAlreadyInUse')"
+              :maxlength="255"
               required
               type="email"
             />
@@ -46,6 +47,7 @@
               v-model="form.password"
               :label="$t('password')"
               :minlength="6"
+              :maxlength="255"
               required
               type="password"
             />
