@@ -1,5 +1,5 @@
 <template>
-  <section class="rounded overflow-hidden shadow rounded-lg bg-white">
+  <section class="rounded overflow-hidden shadow rounded-lg bg-white transition duration-150">
     <div
       v-if="$slots.header"
       class="border-b p-3 md:px-6 md:py-3"

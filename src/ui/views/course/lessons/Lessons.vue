@@ -2,7 +2,7 @@
   <section>
     <Portal to="tab_action">
       <Button theme="primary">
-        Neue Lektion erstellen
+        Lektion erstellen
       </Button>
     </Portal>
     <Button class="mb-4">Vergangene Anzeigen</Button>
