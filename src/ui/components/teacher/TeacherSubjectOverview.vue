@@ -3,29 +3,41 @@
     <Card class="teacher-subject-overview-card">
       <button class="w-full" @click="toggleClasses()">
         <Headline2 class="flex justify-between items-center cursor-pointer">
-          {{ subject }} <Icon class="relative chevron_icon transform transition-transform" :class="{'transform rotate-90 transition duration-200 ease-in-out': isActive }" name="chevron_right"></Icon>
+          {{ subject.title }}
+          <Icon
+            class="relative chevron_icon transform transition-transform"
+            :class="{'transform rotate-90 transition duration-200 ease-in-out': isActive }"
+            name="chevron_right"
+          />
         </Headline2>
       </button>
-      <div v-if="isActive">
-        Klasse 8a<br>
-        Klasse 8b<br>
-        Klasse 8c<br>
-        Klasse 8d<br>
+      <div v-if="isActive" class="pt-4">
+        <CourseLink
+          v-for="course in subject.courses"
+          :key="course._id"
+          :to="`/course/${course._id}`"
+          :color="course.color"
+        >
+          {{ course.title }}
+        </CourseLink>
       </div>
     </Card>
   </div>
 </template>
 
 <script>
+import CourseLink from '../course/CourseLink.vue';
+
 export default {
   name: 'TeacherSubjectOverview',
+  components: { CourseLink },
   props: {
     teacher: {
       type: Object,
       required: true,
     },
     subject: {
-      type: String,
+      type: Object,
       required: true,
     },
   },

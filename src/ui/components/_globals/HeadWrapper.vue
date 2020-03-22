@@ -7,10 +7,15 @@
       }"
     >
       <div class="flex justify-between w-full">
-        <slot />
-        <slot name="right" />
+        <div>
+          <slot />
+        </div>
+        <div>
+          <slot name="right" />
+        </div>
       </div>
       <div
+        class="inline-flex items-center"
         :class="{
           'pt-4': $slots.bottom,
         }"
