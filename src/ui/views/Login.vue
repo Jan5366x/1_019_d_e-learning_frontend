@@ -4,7 +4,7 @@
       <section class="max-w-80 w-full rounded-lg">
         <div class="flex flex-col justify-center w-full mb-4">
           <div class="w-full text-center">
-            <img src="../../assets/logo.png" class="inline-block">
+            <img src="../../assets/logo.png" class="inline-block w-48">
           </div>
           <!-- <h1 class="text-center font-semibold text-2xl">{{ $t('login') }}</h1> -->
         </div>
