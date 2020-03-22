@@ -1,5 +1,4 @@
 /* eslint-disable no-console */
-
 import { register } from 'register-service-worker';
 
 if (process.env.NODE_ENV === 'production') {
@@ -19,8 +18,19 @@ if (process.env.NODE_ENV === 'production') {
     updatefound() {
       console.log('New content is downloading.');
     },
-    updated() {
-      console.log('New content is available; please refresh.');
+    updated(registration) {
+      console.log('New content is available; chache will be deleted.');
+      registration.unregister().then(() => {
+        caches.keys().then((cacheNames) => {
+          cacheNames.map((name, index) => {
+            caches.delete(name);
+            if (index + 1 === cacheNames.length) {
+              window.location.reload(true);
+            }
+          });
+        });
+      });
+      // store.state.app.newContent = true;
     },
     offline() {
       console.log('No internet connection found. App is running in offline mode.');
