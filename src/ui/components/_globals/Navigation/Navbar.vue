@@ -27,8 +27,8 @@
           </button>
         </div>
         <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-          <div class="flex flex-shrink-0 text-white font-bold items-center text-lg">
-            E-Learning
+          <div class="flex flex-shrink-0 text-white font-bold items-center text-xl">
+            LernIT
           </div>
           <div class="hidden sm:block sm:ml-6">
             <div class="flex">
