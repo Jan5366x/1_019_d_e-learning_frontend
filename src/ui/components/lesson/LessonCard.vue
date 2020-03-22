@@ -21,12 +21,12 @@ export default {
   computed: {
     classes() {
       return {
-        'bg-gray-200 text-gray-800': this.color === 'white',
-        'bg-blue-200 text-blue-800': this.color === 'blue',
-        'bg-yellow-200 text-yellow-800': this.color === 'yellow',
-        'bg-orange-200 text-orange-800': this.color === 'orange',
-        'bg-green-200 text-green-800': this.color === 'green',
-        'bg-purple-200 text-purple-800': this.color === 'purple',
+        'bg-gray-200 text-gray-800 hover:bg-gray-300': this.color === 'white',
+        'bg-blue-200 text-blue-800 hover:bg-blue-300': this.color === 'blue',
+        'bg-yellow-200 text-yellow-800 hover:bg-yellow-300': this.color === 'yellow',
+        'bg-orange-200 text-orange-800 hover:bg-orange-300': this.color === 'orange',
+        'bg-green-200 text-green-800 hover:bg-green-300': this.color === 'green',
+        'bg-purple-200 text-purple-800 hover:bg-purple-300': this.color === 'purple',
       };
     },
     labelClasses() {
