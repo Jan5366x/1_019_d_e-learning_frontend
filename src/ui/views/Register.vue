@@ -3,7 +3,7 @@
     <div class="flex flex-col w-full h-full justify-center items-center">
       <section class="max-w-80 w-full rounded-lg">
         <div class="w-full mb-4">
-          <h1 class="text-center font-semibold text-2xl">{{ $t('signUp') + "WARNING! NO HTTPS CONFIGURED" }}</h1>
+          <h1 class="text-center font-semibold text-2xl">{{ $t('signUp') + " WARNING! NO HTTPS CONFIGURED" }}</h1>
         </div>
         <div class="w-full">
           <form
