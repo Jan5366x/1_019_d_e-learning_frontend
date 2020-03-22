@@ -1,6 +1,14 @@
+@import "assets/fonts/Inter/inter.css";
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+@font-face {
+  font-family: 'Material Icons Round';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/material-design-icons.woff2?v=3') format('woff2');
+}
 
 body {
   * {
