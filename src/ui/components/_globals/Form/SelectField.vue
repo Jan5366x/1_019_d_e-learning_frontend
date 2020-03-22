@@ -13,7 +13,7 @@
         :id="id"
         ref="input"
         class="p-2 w-full duration-150 transition-all ease-in-out appearance-none pr-8 cursor-pointer
-        focus:border-black focus:outline-none tap-color-transparent rounded-lg border shadow-sm"
+        focus:border-blue-500 focus:outline-none tap-color-transparent rounded-lg border shadow-sm"
         :class="[{
           'text-gray-500': !value,
           'bg-white border-gray-400 focus:shadow-outline': !hasError && !readonly && !disabled,

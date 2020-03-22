@@ -12,7 +12,7 @@
       :id="id"
       ref="input"
       class="p-2 w-full duration-150 transition-all ease-in-out appearance-none relative resize-none
-      focus:border-black focus:outline-none rounded-lg border shadow-sm"
+      focus:border-blue-500 focus:outline-none rounded-lg border shadow-sm"
       :class="[{
         'bg-white border-gray-400 focus:shadow-outline': hasError === false && !readonly && !disabled,
         'bg-red-200 border-red-500 placeholder-gray-600 z-5': (hasError !== false && typeof hasError === 'string')

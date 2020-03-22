@@ -13,6 +13,7 @@ module.exports = {
     extend: {
       zIndex: {
         2: '2',
+        19: '19',
         21: '21',
       },
       screens: {
@@ -40,6 +41,7 @@ module.exports = {
     userSelect: ['responsive', 'touch'],
     overflow: ['responsive', 'touch'],
     backgroundColor: ['responsive', 'hover', 'focus', 'active'],
+    shadow: ['responsive', 'hover', 'focus', 'active'],
   },
   plugins: [
     safeAreaSpacing,

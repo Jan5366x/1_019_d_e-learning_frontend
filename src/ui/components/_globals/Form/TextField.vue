@@ -21,7 +21,7 @@
         :id="id"
         ref="input"
         class="p-2 w-full duration-150 transition-all ease-in-out appearance-none relative
-        focus:border-black focus:outline-none focus:z-2 min-h-10 border rounded-lg shadow-sm"
+        focus:border-blue-500 focus:outline-none focus:z-2 min-h-10 border rounded-lg shadow-sm"
         :class="[{
           'pl-8': unit || $slots.unit,
           'bg-white border-gray-400 focus:shadow-outline': hasError === false && !readonly && !disabled,
