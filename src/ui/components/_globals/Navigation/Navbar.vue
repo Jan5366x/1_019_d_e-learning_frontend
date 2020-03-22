@@ -56,7 +56,11 @@
               {{ $t('settings') }}
             </DropdownItem>
             <hr>
-            <DropdownItem theme="alert" icon="exit_to_app">
+            <DropdownItem
+              theme="alert"
+              icon="exit_to_app"
+              @click="$emit('logout')"
+            >
               {{ $t('logout') }}
             </DropdownItem>
           </Dropdown>

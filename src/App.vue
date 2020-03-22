@@ -5,6 +5,7 @@
       :class="{
         '-translate-y-full': !$route.meta.authRequired || !Authentication.user,
       }"
+      @logout="Authentication.logout"
     >
       <template v-if="Authentication.user && Authentication.user.role === 'teacher'">
         <NavbarItem to="/">Home</NavbarItem>
