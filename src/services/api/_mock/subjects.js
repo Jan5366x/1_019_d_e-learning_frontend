@@ -1,1 +1,1 @@
-export default ['Deutsch', 'Englisch', 'Mathematik', 'Chemie', 'Physik', 'Informatik'];
+export default ['Chemie', 'Physik', 'Informatik'];
