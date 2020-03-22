@@ -25,7 +25,7 @@ export default {
           this.user = resp.data.user;
           this.user.role = 'teacher';
           localStorage.setItem(ACCESS_TOKEN, this.token);
-          localStorage.setItem(UID, btoa(JSON.stringify(this.user)));
+          localStorage.setItem(UID, JSON.stringify(this.user));
           this.$router.push(`/dashboard_${this.user.role}`);
           res(resp.data);
           // Todo: implement get user data => backend
@@ -69,7 +69,7 @@ export default {
       const token = localStorage.getItem(ACCESS_TOKEN);
       if (token) {
         const uid = localStorage.getItem(UID);
-        const user = JSON.parse(atob(uid));
+        const user = JSON.parse(uid);
         this.token = token;
         this.user = user;
         // Todo: implement get user data => backend

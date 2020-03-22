@@ -1,5 +1,5 @@
 <template>
-  <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+  <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
     <TeacherSubjectOverview
       v-for="subject of Subjects.subjects"
       :key="subject"
