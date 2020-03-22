@@ -12,6 +12,7 @@ module.exports = {
     // extend default tailwind configs
     extend: {
       zIndex: {
+        2: '2',
         21: '21',
       },
       screens: {
@@ -35,6 +36,7 @@ module.exports = {
     width: ['responsive', 'touch'],
     userSelect: ['responsive', 'touch'],
     overflow: ['responsive', 'touch'],
+    backgroundColor: ['responsive', 'hover', 'focus', 'active'],
   },
   plugins: [
     safeAreaSpacing,

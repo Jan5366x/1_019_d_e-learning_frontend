@@ -3,38 +3,25 @@
     <div class="flex flex-col w-full h-full justify-center items-center">
       <section class="max-w-80 w-full rounded-lg">
         <div class="w-full mb-4">
-          <h1 class="text-center font-semibold text-2xl">{{ $t('login') }}</h1>
+          <h1 class="text-center font-semibold text-2xl">{{ $t('forgotPassword') }}</h1>
+          <p class="text-sm text-center mt-1 text-gray-700">
+            {{ $t('sendPasswordResetEmail') }}
+          </p>
         </div>
         <div class="w-full">
           <form
             class="form login-form"
-            @submit.prevent="login"
+            @submit.prevent="sendResetMail"
           >
             <TextField
               v-model="email"
               :label="$t('email')"
-              :custom-error="loginError ? true : false"
-              :custom-error-msg="$t('loginError')"
               required
               autofocus
               type="email"
             />
-            <TextField
-              v-model="password"
-              :label="$t('password')"
-              required
-              type="password"
-            />
-            <div class="mb-4 text-sm">
-              <router-link to="/password-forgotten">{{ $t('forgotPassword') }}</router-link>
-            </div>
-            <Button
-              theme="primary"
-              class="w-full"
-              type="submit"
-              :loading="loading"
-            >
-              {{ $t('login') }}
+            <Button theme="primary" class="w-full" type="submit">
+              {{ $t('resetPassword') }}
             </Button>
             <div class="flex my-4 items-center">
               <hr class="flex flex-1">
@@ -57,24 +44,12 @@ export default {
     return {
       email: null,
       password: null,
-
-      loginError: false,
-      loading: false,
     };
   },
 
   methods: {
-    login() {
-      this.loading = true;
-      this.Authentication.login(this.email, this.password)
-        .then(() => {
-          this.loading = false;
-        })
-        .catch(() => {
-          this.loginError = true;
-          this.password = null;
-          this.loading = false;
-        });
+    sendResetMail() {
+      // TODO: Api Implementation
     },
   },
 };

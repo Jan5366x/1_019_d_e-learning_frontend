@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URI = 'https://5e7607da75012c00165e47eb.mockapi.io/api';
+const API_URI = process.env.VUE_APP_API_URI;
 
 export default {
   POST(url, data, config) {

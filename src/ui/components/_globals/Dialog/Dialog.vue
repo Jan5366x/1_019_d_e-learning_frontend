@@ -4,7 +4,7 @@
     <Modal
       :value="isActive"
       modal-class="w-64"
-      :padding="0"
+      :padding="false"
       :closeable="cancelable"
       @input="cancelable ? cancel() : null"
     >

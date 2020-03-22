@@ -19,17 +19,26 @@
         <div
           v-if="$slots.header"
           class="sticky left-0 top-0 w-full backdrop-blur-light border-b"
-          :class="`px${paddingClass} pt${paddingClass} pb-3`"
+          :class="{
+            'px-4 pt-4 pb-3': padding,
+          }"
         >
           <slot name="header" />
         </div>
-        <div ref="innerContent" :class="`p${paddingClass} ${$slots.header ? 'pt-px' : ''} ${innerClass}`">
+        <div
+          ref="innerContent"
+          :class="[`${$slots.header ? 'pt-px' : ''} ${innerClass}`, {
+            'p-4': padding,
+          }]"
+        >
           <slot />
         </div>
         <div
           v-if="$slots.footer"
           class="sticky flex justify-end left-0 bottom-0 w-full backdrop-blur-light border-t z-5"
-          :class="`px${paddingClass} pb${paddingClass} pt-3`"
+          :class="{
+            'px-4 pb-4 pt-3': padding,
+          }"
         >
           <slot name="footer" />
         </div>
@@ -68,8 +77,8 @@ export default {
       default: '',
     },
     padding: {
-      type: [Number, String],
-      default: 4,
+      type: Boolean,
+      default: true,
     },
     bodyOpenClass: {
       type: String,

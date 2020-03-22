@@ -7,7 +7,3 @@ export default {
   name: 'Tasks',
 };
 </script>
-
-<style scoped>
-
-</style>

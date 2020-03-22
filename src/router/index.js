@@ -5,9 +5,10 @@ import { ACCESS_TOKEN } from '../config/localStorageVariables';
 
 Vue.use(VueRouter);
 
-const authRequired = () => {
+const authRequired = (role) => {
   return {
     authRequired: true,
+    role: role || 'all',
   };
 };
 
@@ -26,6 +27,11 @@ const routes = [
     component: () => import(/* webpackChunkName: "Login" */ '../ui/views/Login.vue'),
   },
   {
+    path: '/password-forgotten',
+    name: 'PasswordForgotten',
+    component: () => import(/* webpackChunkName: "PasswordForgotten" */ '../ui/views/PasswordForgotten.vue'),
+  },
+  {
     path: '/register',
     name: 'Register',
     component: () => import(/* webpackChunkName: "Register" */ '../ui/views/Register.vue'),
@@ -35,31 +41,37 @@ const routes = [
     path: '/dashboard_teacher',
     name: 'Dashboard Teacher',
     component: () => import(/* webpackChunkName: "DashboardTeacher" */ '../ui/views/Dashboard.vue'),
-    props: { role: 'teacher' },
+    meta: { ...authRequired('teacher') },
     children: [
       {
         path: 'teachers_room',
         component: () => import(/* webpackChunkName: "DashboardTeacher" */ '../ui/views/teacher/TeachersRoom.vue'),
+        meta: { ...authRequired('teacher') },
         children: [
           {
             path: 'timetable',
             component: () => import(/* webpackChunkName: "DashboardTeacher" */ '../ui/views/teacher/timetable/Timetable.vue'),
+            meta: { ...authRequired('teacher') },
           },
           {
             path: 'teach_room',
             component: () => import(/* webpackChunkName: "DashboardTeacher" */ '../ui/views/teacher/teach-room/TeachRoom.vue'),
+            meta: { ...authRequired('teacher') },
           },
           {
             path: 'courses/:id',
             component: () => import(/* webpackChunkName: "DashboardTeacher" */ '../ui/views/teacher/courses/Courses.vue'),
+            meta: { ...authRequired('teacher') },
             children: [
               {
                 path: 'files',
                 component: () => import(/* webpackChunkName: "DashboardTeacher" */ '../ui/views/teacher/courses/files/Files.vue'),
+                meta: { ...authRequired('teacher') },
               },
               {
                 path: 'stream',
                 component: () => import(/* webpackChunkName: "DashboardTeacher" */ '../ui/views/teacher/courses/stream/Stream.vue'),
+                meta: { ...authRequired('teacher') },
               },
             ],
           },
@@ -68,6 +80,7 @@ const routes = [
       {
         path: 'students_room',
         component: () => import(/* webpackChunkName: "DashboardTeacher" */ '../ui/views/teacher/StudentsRoom.vue'),
+        meta: { ...authRequired('teacher') },
       },
     ],
   },
@@ -75,30 +88,35 @@ const routes = [
   {
     path: '/dashboard_student',
     name: 'Dashboard Student',
-    component: () => import(/* webpackChunkName: "DashboardTeacher" */ '../ui/views/Dashboard.vue'),
-    props: { role: 'student' },
+    component: () => import(/* webpackChunkName: "DashboardStudent" */ '../ui/views/Dashboard.vue'),
+    meta: { ...authRequired('student') },
     children: [
       {
         path: 'classroom',
-        component: () => import(/* webpackChunkName: "DashboardTeacher" */ '../ui/views/students/Classroom.vue'),
+        component: () => import(/* webpackChunkName: "DashboardStudent" */ '../ui/views/students/Classroom.vue'),
+        meta: { ...authRequired('student') },
         children: [
           {
             path: 'timetable',
-            component: () => import(/* webpackChunkName: "DashboardTeacher" */ '../ui/views/students/timetable/Timetable.vue'),
+            component: () => import(/* webpackChunkName: "DashboardStudent" */ '../ui/views/students/timetable/Timetable.vue'),
+            meta: { ...authRequired('student') },
           },
           {
             path: 'classroom',
-            component: () => import(/* webpackChunkName: "DashboardTeacher" */ '../ui/views/students/classroom/Classroom.vue'),
+            component: () => import(/* webpackChunkName: "DashboardStudent" */ '../ui/views/students/classroom/Classroom.vue'),
+            meta: { ...authRequired('student') },
           },
           {
             path: 'stream',
-            component: () => import(/* webpackChunkName: "DashboardTeacher" */ '../ui/views/students/stream/Stream.vue'),
+            component: () => import(/* webpackChunkName: "DashboardStudent" */ '../ui/views/students/stream/Stream.vue'),
+            meta: { ...authRequired('student') },
           },
         ],
       },
       {
         path: 'tasks',
-        component: () => import(/* webpackChunkName: "DashboardTeacher" */ '../ui/views/students/Tasks.vue'),
+        component: () => import(/* webpackChunkName: "DashboardStudent" */ '../ui/views/students/Tasks.vue'),
+        meta: { ...authRequired('student') },
       },
     ],
   },
@@ -119,19 +137,6 @@ const routes = [
 
 const router = new VueRouter({
   routes,
-});
-
-router.beforeEach((to, from, next) => {
-  const token = localStorage.getItem(ACCESS_TOKEN);
-  if (to.meta.authRequired && token) {
-    next();
-  } else if (!to.meta.authRequired && token) {
-    router.push('/home');
-  } else if (to.meta.authRequired && !token) {
-    router.push('/login');
-  } else {
-    next();
-  }
 });
 
 export default router;
