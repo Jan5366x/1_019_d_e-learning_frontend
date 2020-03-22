@@ -74,18 +74,58 @@ const routes = [
         path: 'courses',
         component: () => import(/* webpackChunkName: "TeachersRoom" */ '../ui/views/teacher/courses/Courses.vue'),
         meta: { ...authRequired('teacher') },
-        children: [
-          {
-            path: 'files',
-            component: () => import(/* webpackChunkName: "TeachersRoom" */ '../ui/views/teacher/courses/files/Files.vue'),
-            meta: { ...authRequired('teacher') },
-          },
-          {
-            path: 'stream',
-            component: () => import(/* webpackChunkName: "TeachersRoom" */ '../ui/views/teacher/courses/stream/Stream.vue'),
-            meta: { ...authRequired('teacher') },
-          },
-        ],
+      },
+    ],
+  },
+  // Course ----------------------------------------------------------------------------------------
+  {
+    path: '/course/:id',
+    component: () => import(/* webpackChunkName: "TeachersRoom" */ '../ui/views/course/Course.vue'),
+    redirect: '/course/:id/lessons',
+    meta: { ...authRequired('all') },
+    children: [
+      {
+        path: 'lessons',
+        component: () => import(/* webpackChunkName: "NotFound" */ '../ui/views/course/lessons/Lessons.vue'),
+        meta: { ...authRequired('all') },
+      },
+      {
+        path: 'files',
+        component: () => import(/* webpackChunkName: "NotFound" */ '../ui/views/NotFound.vue'),
+        meta: { ...authRequired('all') },
+      },
+      {
+        path: 'students',
+        component: () => import(/* webpackChunkName: "NotFound" */ '../ui/views/NotFound.vue'),
+        meta: { ...authRequired('all') },
+      },
+      // {
+      //   path: 'stream',
+      //   component: () => (/* webpackChunkName: "TeachersRoom" */ '../ui/views/teacher/timetable/TeachRoom.vue'),
+      //   meta: { ...authRequired('all') },
+      // },
+      // {
+      //   path: 'files',
+      //   component: () => (/* webpackChunkName: "TeachersRoom" */ '../ui/views/teacher/timetable/TeachRoom.vue'),
+      //   meta: { ...authRequired('all') },
+      // },
+    ],
+  },
+  {
+    path: '/lesson/:id',
+    component: () => import(/* webpackChunkName: "TeachersRoom" */ '../ui/views/course/Course.vue'),
+    // redirect: '/course/:id/stream',
+    meta: { ...authRequired('all') },
+    children: [
+      {
+        path: 'stream',
+        component: () => (/* webpackChunkName: "TeachersRoom" */ './ui/views/teacher/timetable/TeachRoom.vue'),
+        meta: { ...authRequired('all') },
+      },
+      {
+        path: 'files',
+        component: () => (/* webpackChunkName: "TeachersRoom" */ './ui/views/teacher/timetable/TeachRoom.vue'),
+        meta: { ...authRequired('all') },
       },
     ],
   },
@@ -156,7 +196,8 @@ router.beforeEach((to, from, next) => {
   } else if (to.meta.authRequired && !token) {
     next({ name: 'Login' });
   } else if (!to.meta.authRequired && token) {
-    next(false);
+    if (user.role === 'teacher') next({ name: 'DashboardTeacher' });
+    else if (user.role === 'student') next({ name: 'DashboardStudent' });
   } else if (to.meta.authRequired && token && (to.meta.role === 'all' || user.role === to.meta.role)) {
     next();
   } else if (to.meta.authRequired && token && user.role !== to.meta.role) {
