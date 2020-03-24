@@ -31,11 +31,11 @@ const routes = [
     name: 'PasswordForgotten',
     component: () => import(/* webpackChunkName: "PasswordForgotten" */ '../ui/views/PasswordForgotten.vue'),
   },
-  {
-    path: '/register',
-    name: 'Register',
-    component: () => import(/* webpackChunkName: "Register" */ '../ui/views/Register.vue'),
-  },
+  // {
+  //   path: '/register',
+  //   name: 'Register',
+  //   component: () => import(/* webpackChunkName: "Register" */ '../ui/views/Register.vue'),
+  // },
   // Teacher ---------------------------------------------------------------------------------------
   {
     path: '/dashboard_teacher',
